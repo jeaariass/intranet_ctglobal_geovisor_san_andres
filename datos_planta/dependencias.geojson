@@ -1,0 +1,344 @@
+{
+ "type": "FeatureCollection",
+ "name": "dependencias_planta_sanandres",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Oficina Asesora Jurídica",
+    "slug": "oficina_asesora_juridica",
+    "planta_actual": 10,
+    "planta_propuesta": 15,
+    "delta": 5,
+    "coincide_doc": true,
+    "pagina_pdf": 29
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Oficina de Control Interno de Gestión",
+    "slug": "oficina_de_control_interno_de_gestion",
+    "planta_actual": 5,
+    "planta_propuesta": 9,
+    "delta": 4,
+    "coincide_doc": false,
+    "pagina_pdf": 35
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Oficina de Control Interno Disciplinario",
+    "slug": "oficina_de_control_interno_disciplinario",
+    "planta_actual": 2,
+    "planta_propuesta": 9,
+    "delta": 7,
+    "coincide_doc": true,
+    "pagina_pdf": 44
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Oficina de Prensa y Comunicaciones",
+    "slug": "oficina_de_prensa_y_comunicaciones",
+    "planta_actual": 2,
+    "planta_propuesta": 9,
+    "delta": 7,
+    "coincide_doc": true,
+    "pagina_pdf": 52
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "OCCRE",
+    "slug": "occre",
+    "planta_actual": 86,
+    "planta_propuesta": 164,
+    "delta": 78,
+    "coincide_doc": true,
+    "pagina_pdf": 62
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría Privada",
+    "slug": "secretaria_privada",
+    "planta_actual": 6,
+    "planta_propuesta": 8,
+    "delta": 2,
+    "coincide_doc": false,
+    "pagina_pdf": 70
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Planeación",
+    "slug": "secretaria_de_planeacion",
+    "planta_actual": 16,
+    "planta_propuesta": 24,
+    "delta": 8,
+    "coincide_doc": true,
+    "pagina_pdf": 79
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Hacienda",
+    "slug": "secretaria_de_hacienda",
+    "planta_actual": 27,
+    "planta_propuesta": 38,
+    "delta": 11,
+    "coincide_doc": false,
+    "pagina_pdf": 90
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Salud",
+    "slug": "secretaria_de_salud",
+    "planta_actual": 40,
+    "planta_propuesta": 52,
+    "delta": 12,
+    "coincide_doc": true,
+    "pagina_pdf": 105
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Educación",
+    "slug": "secretaria_de_educacion",
+    "planta_actual": 20,
+    "planta_propuesta": 28,
+    "delta": 8,
+    "coincide_doc": false,
+    "pagina_pdf": 129
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Agricultura y Pesca",
+    "slug": "secretaria_de_agricultura_y_pesca",
+    "planta_actual": 10,
+    "planta_propuesta": 16,
+    "delta": 6,
+    "coincide_doc": true,
+    "pagina_pdf": 143
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría General",
+    "slug": "secretaria_general",
+    "planta_actual": 52,
+    "planta_propuesta": 59,
+    "delta": 7,
+    "coincide_doc": true,
+    "pagina_pdf": 162
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Gobierno",
+    "slug": "secretaria_de_gobierno",
+    "planta_actual": 7,
+    "planta_propuesta": 12,
+    "delta": 5,
+    "coincide_doc": true,
+    "pagina_pdf": 180
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Desarrollo Social",
+    "slug": "secretaria_de_desarrollo_social",
+    "planta_actual": 10,
+    "planta_propuesta": 22,
+    "delta": 12,
+    "coincide_doc": true,
+    "pagina_pdf": 196
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Movilidad",
+    "slug": "secretaria_de_movilidad",
+    "planta_actual": 27,
+    "planta_propuesta": 43,
+    "delta": 16,
+    "coincide_doc": false,
+    "pagina_pdf": 208
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Turismo",
+    "slug": "secretaria_de_turismo",
+    "planta_actual": 8,
+    "planta_propuesta": 21,
+    "delta": 13,
+    "coincide_doc": true,
+    "pagina_pdf": 217
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Infraestructura",
+    "slug": "secretaria_de_infraestructura",
+    "planta_actual": 22,
+    "planta_propuesta": 38,
+    "delta": 16,
+    "coincide_doc": false,
+    "pagina_pdf": 229
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Servicios Públicos y Medio Ambiente",
+    "slug": "secretaria_de_servicios_publicos_y_medio_ambiente",
+    "planta_actual": 6,
+    "planta_propuesta": 24,
+    "delta": 18,
+    "coincide_doc": false,
+    "pagina_pdf": 244
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Cultura",
+    "slug": "secretaria_de_cultura",
+    "planta_actual": 5,
+    "planta_propuesta": 13,
+    "delta": 8,
+    "coincide_doc": true,
+    "pagina_pdf": 255
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría TIC",
+    "slug": "secretaria_tic",
+    "planta_actual": 33,
+    "planta_propuesta": 30,
+    "delta": -3,
+    "coincide_doc": true,
+    "pagina_pdf": 272
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Seguridad y Convivencia Ciudadana",
+    "slug": "secretaria_de_seguridad_y_convivencia_ciudadana",
+    "planta_actual": 30,
+    "planta_propuesta": 33,
+    "delta": 3,
+    "coincide_doc": true,
+    "pagina_pdf": 290
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de Gestión del Riesgo",
+    "slug": "secretaria_de_gestion_del_riesgo",
+    "planta_actual": 64,
+    "planta_propuesta": 99,
+    "delta": 35,
+    "coincide_doc": true,
+    "pagina_pdf": 306
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de la Mujer y Equidad de Género",
+    "slug": "secretaria_de_la_mujer_y_equidad_de_genero",
+    "planta_actual": 9,
+    "planta_propuesta": 14,
+    "delta": 5,
+    "coincide_doc": false,
+    "pagina_pdf": 316
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Secretaría de la Juventud",
+    "slug": "secretaria_de_la_juventud",
+    "planta_actual": 4,
+    "planta_propuesta": 10,
+    "delta": 6,
+    "coincide_doc": true,
+    "pagina_pdf": 324
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "INDER ISLAS",
+    "slug": "inder_islas",
+    "planta_actual": 0,
+    "planta_propuesta": 25,
+    "delta": 25,
+    "coincide_doc": true,
+    "pagina_pdf": 337
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": null,
+   "properties": {
+    "dependencia": "Oficina de Contratación",
+    "slug": "oficina_de_contratacion",
+    "planta_actual": 0,
+    "planta_propuesta": 6,
+    "delta": 6,
+    "coincide_doc": false,
+    "pagina_pdf": 343
+   }
+  }
+ ]
+}

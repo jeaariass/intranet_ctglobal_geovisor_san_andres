@@ -1,0 +1,4 @@
+﻿grupo,nivel,denominacion,codigo,grado,n_cargos,costo_unitario,costo_total_mensual,costo_total_anual
+suprimir,Asistencial,Guardian,485,12,1,3810256.8325333335,3810256.8325333335,45723081.9904
+suprimir,Asistencial,Bomberos,475,16,4,4296780.317600001,17187121.270400003,206245455.24480003
+suprimir,Asistencial,Cabo de Bomberos,413,17,12,4382551.850133333,52590622.2016,631087466.4192

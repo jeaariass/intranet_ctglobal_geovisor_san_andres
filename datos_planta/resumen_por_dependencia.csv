@@ -1,0 +1,27 @@
+﻿dependencia,dependencia_slug,planta_actual_filas,planta_propuesta_filas,delta_filas,planta_actual_doc,planta_propuesta_doc,coincide_doc,n_lineas,pagina_pdf,tipo_tabla
+Oficina Asesora Jurídica,oficina_asesora_juridica,10,15,5,10,15,True,10,29,AP
+Oficina de Control Interno de Gestión,oficina_de_control_interno_de_gestion,5,9,4,4,8,False,9,35,AP
+Oficina de Control Interno Disciplinario,oficina_de_control_interno_disciplinario,2,9,7,2,9,True,6,44,AP
+Oficina de Prensa y Comunicaciones,oficina_de_prensa_y_comunicaciones,2,9,7,2,9,True,8,52,AP
+OCCRE,occre,86,164,78,86,164,True,22,62,AP
+Secretaría Privada,secretaria_privada,6,8,2,6,7,False,6,70,AP
+Secretaría de Planeación,secretaria_de_planeacion,16,24,8,16,24,True,14,79,AP
+Secretaría de Hacienda,secretaria_de_hacienda,27,38,11,27,39,False,24,90,AP
+Secretaría de Salud,secretaria_de_salud,40,52,12,40,52,True,21,105,AP
+Secretaría de Educación,secretaria_de_educacion,20,28,8,20,27,False,15,129,AP
+Secretaría de Agricultura y Pesca,secretaria_de_agricultura_y_pesca,10,16,6,10,16,True,14,143,AP
+Secretaría General,secretaria_general,52,59,7,52,59,True,38,162,AP
+Secretaría de Gobierno,secretaria_de_gobierno,7,12,5,7,12,True,10,180,AP
+Secretaría de Desarrollo Social,secretaria_de_desarrollo_social,10,22,12,10,22,True,10,196,AP
+Secretaría de Movilidad,secretaria_de_movilidad,27,43,16,27,42,False,15,208,AP
+Secretaría de Turismo,secretaria_de_turismo,8,21,13,8,21,True,12,217,AP
+Secretaría de Infraestructura,secretaria_de_infraestructura,22,38,16,23,38,False,24,229,AP
+Secretaría de Servicios Públicos y Medio Ambiente,secretaria_de_servicios_publicos_y_medio_ambiente,6,24,18,6,23,False,18,244,AP
+Secretaría de Cultura,secretaria_de_cultura,5,13,8,5,13,True,12,255,AP
+Secretaría TIC,secretaria_tic,33,30,-3,33,30,True,15,272,AP
+Secretaría de Seguridad y Convivencia Ciudadana,secretaria_de_seguridad_y_convivencia_ciudadana,30,33,3,30,33,True,18,290,AP
+Secretaría de Gestión del Riesgo,secretaria_de_gestion_del_riesgo,64,99,35,64,99,True,23,306,AP
+Secretaría de la Mujer y Equidad de Género,secretaria_de_la_mujer_y_equidad_de_genero,9,14,5,9,11,False,10,316,AP
+Secretaría de la Juventud,secretaria_de_la_juventud,4,10,6,4,10,True,11,324,AP
+INDER ISLAS,inder_islas,0,25,25,0,25,True,21,337,N
+Oficina de Contratación,oficina_de_contratacion,0,6,6,,,False,4,343,N

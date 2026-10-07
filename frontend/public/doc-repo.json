@@ -1,0 +1,50 @@
+[
+  {
+    "key": "normativa",
+    "name": "Normativa",
+    "layers": ["division_municipal", "division_veredal"],
+    "files": [
+      { "id": "doc_norm_001", "title": "ACUERDO 2019 EOT", "file": "docs/Normativa/ACUERDO 2019 EOT.pdf", "type": "pdf" },
+      { "id": "doc_norm_002", "title": "Resolución 384 de 2025", "file": "docs/Normativa/Resolución 384 de 2025.pdf", "type": "pdf" }
+    ]
+  },
+  {
+    "key": "diagnosticos",
+    "name": "Diagnósticos",
+    "layers": ["suelo_urbano", "suelo_rural"],
+    "files": [
+      { "id": "doc_diag_001", "title": "Documento Técnico EOT (extracto)", "file": "docs/Diagnosticos/21 ESTUDIO DE MERCADO ACTUALIZACION EOT vf-1.pdf", "type": "pdf" }
+    ]
+  },
+  {
+  "key": "cartografia",
+  "name": "Cartografía",
+  "layers": [
+    "DIVISIÓN PREDIAL URBANO",
+    "EQUIPAMIENTOS EXISTENTES URBANOS",
+    "ESPACIO PÚBLICO URBANO",
+    "OCUPACIÓN ACTUAL",
+    "PENDIENTES",
+    "RED VIAL RURAL",
+    "RED VIAL URBANO",
+    "SUELO URBANO",
+    "USO ACTUAL SUELO URBANO",
+    "ZONAS DE AMPLIACIÓN DEL PERÍMETRO URBANO",
+    "ÁREAS DE CONSERVACIÓN Y PROTECCIÓN AMBIENTAL"
+  ],
+  "files": [
+    { "id": "doc_cart_001", "title": "DIVISIÓN PREDIAL URBANO (JPG)", "file": "docs/Cartografia/DIVISIÓN PREDIAL URBANO.jpg", "type": "image" },
+    { "id": "doc_cart_002", "title": "EQUIPAMIENTOS EXISTENTES URBANOS (JPG)", "file": "docs/Cartografia/EQUIPAMIENTOS EXISTENTES URBANOS.jpg", "type": "image" },
+    { "id": "doc_cart_003", "title": "ESPACIO PÚBLICO URBANO (JPG)", "file": "docs/Cartografia/ESPACIO PÚBLICO URBANO.jpg", "type": "image" },
+    { "id": "doc_cart_004", "title": "OCUPACIÓN ACTUAL (JPG)", "file": "docs/Cartografia/OCUPACIÓN ACTUAL.jpg", "type": "image" },
+    { "id": "doc_cart_005", "title": "PENDIENTES (JPG)", "file": "docs/Cartografia/PENDIENTES.jpg", "type": "image" },
+    { "id": "doc_cart_006", "title": "RED VIAL RURAL (JPG)", "file": "docs/Cartografia/RED VIAL RURAL.jpg", "type": "image" },
+    { "id": "doc_cart_007", "title": "RED VIAL URBANO (JPG)", "file": "docs/Cartografia/RED VIAL URBANO.jpg", "type": "image" },
+    { "id": "doc_cart_008", "title": "SUELO URBANO (JPG)", "file": "docs/Cartografia/SUELO URBANO.jpg", "type": "image" },
+    { "id": "doc_cart_009", "title": "USO ACTUAL SUELO URBANO (JPG)", "file": "docs/Cartografia/USO ACTUAL SUELO URBANO.jpg", "type": "image" },
+    { "id": "doc_cart_010", "title": "ZONAS DE AMPLIACIÓN DEL PERÍMETRO URBANO (JPG)", "file": "docs/Cartografia/ZONAS DE AMPLIACIÓN DEL PERÍMETRO URBANO.jpg", "type": "image" },
+    { "id": "doc_cart_011", "title": "ÁREAS DE CONSERVACIÓN Y PROTECCIÓN AMBIENTAL (JPG)", "file": "docs/Cartografia/ÁREAS DE CONSERVACIÓN Y PROTECCIÓN AMBIENTAL.jpg", "type": "image" }
+  ]
+}
+
+]

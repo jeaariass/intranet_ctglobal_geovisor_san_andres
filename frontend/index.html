@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoVisor — San Andrés</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@latest/ol.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.10.0/proj4.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css" />
+  <script src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
+
+  <link rel="stylesheet" href="src/js/style.css" />
+</head>
+<body>
+<div id="mainApp">
+
+  <!-- ══ HEADER ══════════════════════════════════════════════ -->
+  <header class="header">
+    <div class="header-left">
+      <!-- Botón colapsar sidebar -->
+      <button class="btn-icon" id="btnToggleSidebar" title="Mostrar/ocultar panel">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Logo -->
+      <div class="logo">
+        <img src="brand/logo-alcaldia.png" alt="Alcaldía"
+            style="height:36px;width:auto;object-fit:contain;border-radius:6px"
+            onerror="this.style.display='none'">
+        <img src="brand/logo-ctglobal.png" alt="CTGlobal"
+            style="height:30px;width:auto;object-fit:contain;opacity:.85"
+            onerror="this.style.display='none'">
+        <div class="logo-text">
+          <h2>GeoVisor</h2>
+          <p data-project-nombre>San Andrés — Catastro y Patrimonio</p>
+        </div>
+      </div>
+
+      <!-- Breadcrumb -->
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <i class="fas fa-map-marked-alt"></i>
+        <span>Catastro predial y patrimonio cultural</span>
+        <i class="fas fa-chevron-right"></i>
+        <span>Visualización cartográfica</span>
+      </nav>
+    </div>
+
+    <div class="header-right">
+      <!-- Repositorio documental -->
+      <button id="btnDocRepoOpen" class="btn-icon" title="Repositorio documental">
+        <i class="fas fa-folder-open"></i>
+      </button>
+
+      <!-- Cargar documentos (solo EDITOR) -->
+      <button id="btnDocUploadOpen" class="btn-icon" data-permiso="subirDocumentos" title="Cargar documentos">
+        <i class="fas fa-cloud-upload-alt"></i>
+      </button>
+
+      <!-- Panel admin (solo EDITOR) -->
+      <a href="admin-users.html" class="btn-icon" data-permiso="verAdminPanel" title="Gestión de accesos">
+        <i class="fas fa-users-cog"></i>
+      </a>
+
+      <!-- Info -->
+      <button id="infoBtn" class="btn-icon" title="Información del visor">
+        <i class="fas fa-info-circle"></i>
+      </button>
+
+      <!-- Usuario -->
+      <div class="user-menu" id="userMenu">
+        <div class="user-avatar" id="userInitials">U</div>
+        <div>
+          <div class="user-name" data-user-nombre>Usuario</div>
+          <div class="user-role" data-user-rol>VIEWER</div>
+        </div>
+        <i class="fas fa-chevron-down" style="font-size:.7rem;color:var(--text-gray)"></i>
+      </div>
+
+      <!-- Logout (dropdown del user-menu) -->
+      <button id="btnLogout" class="btn-icon" title="Cerrar sesión" data-logout style="color:#dc2626">
+        <i class="fas fa-sign-out-alt"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ══ MAIN CONTAINER ═══════════════════════════════════════ -->
+  <div class="main-container">
+
+    <!-- ── SIDEBAR ─────────────────────────────────────────── -->
+    <aside class="sidebar" id="sidebar">
+
+      <div class="sidebar-header">
+        <div class="sidebar-title"><i class="fas fa-tools"></i>&ensp;Herramientas</div>
+      </div>
+
+      <!-- Navegación de herramientas -->
+      <nav class="tools-nav" id="toolsNav">
+        <button class="tool-nav-btn active" data-panel="capas">
+          <i class="fas fa-layer-group"></i>Capas
+        </button>
+        <button class="tool-nav-btn" data-panel="identify" data-permiso="identificarFeature">
+          <i class="fas fa-mouse-pointer"></i>Consultar
+        </button>
+        <button class="tool-nav-btn" data-panel="measure" data-permiso="medirArea">
+          <i class="fas fa-ruler-combined"></i>Medir
+        </button>
+        <button class="tool-nav-btn" data-panel="query" data-permiso="verTablaAtributos">
+          <i class="fas fa-search"></i>Buscar
+        </button>
+        <button class="tool-nav-btn" data-panel="upload" data-permiso="subirArchivos">
+          <i class="fas fa-upload"></i>Cargar
+        </button>
+        <button class="tool-nav-btn" data-panel="print" data-permiso="imprimirMapa">
+          <i class="fas fa-print"></i>Imprimir
+        </button>
+        <button class="tool-nav-btn" data-panel="coord" data-permiso="capturaCoords">
+          <i class="fas fa-crosshairs"></i>Coords
+        </button>
+      </nav>
+
+      <!-- Cuerpo del sidebar -->
+      <div class="sidebar-body">
+
+        <!-- CAPAS — layers.js usa #layersPanel -->
+        <div id="panel-capas" class="tool-panel active">
+          <p class="panel-title"><i class="fas fa-layer-group"></i> Capas del proyecto</p>
+          <div id="layersPanel">
+            <p style="color:var(--text-gray);font-size:.82rem;padding:.25rem 0">
+              <i class="fas fa-spinner fa-spin"></i> Cargando capas…
+            </p>
+          </div>
+        </div>
+
+        <!-- IDENTIFY -->
+        <div id="panel-identify" class="tool-panel" data-permiso="identificarFeature">
+          <p class="panel-title"><i class="fas fa-mouse-pointer"></i> Consultar entidad</p>
+          <div class="tool-actions">
+            <select id="identifyMode" class="form-select" style="flex:1">
+              <option value="top">Capa superior</option>
+              <option value="all">Todas las capas</option>
+            </select>
+            <button id="btnIdentifyToggle" class="btn btn-primary btn-sm">Iniciar</button>
+            <button id="btnIdentifyClear"  class="btn btn-ghost  btn-sm">Limpiar</button>
+          </div>
+          <div id="identifyResults" class="identify-results"></div>
+        </div>
+
+        <!-- MEDICIÓN -->
+        <div id="panel-measure" class="tool-panel" data-permiso="medirArea">
+          <p class="panel-title"><i class="fas fa-ruler-combined"></i> Medición</p>
+          <div class="tool-actions">
+            <select id="measurementTypeSelect" class="form-select" style="flex:1">
+              <option value="">Seleccione tipo…</option>
+              <option value="area">Área</option>
+              <option value="perimeter">Perímetro / Distancia</option>
+            </select>
+            <button id="btnMeasureStart" class="btn btn-primary btn-sm">Iniciar</button>
+            <button id="btnMeasureClear" class="btn btn-ghost  btn-sm">Limpiar</button>
+          </div>
+          <ul id="measureList"></ul>
+        </div>
+
+        <!-- BÚSQUEDA WFS -->
+        <div id="panel-query" class="tool-panel" data-permiso="verTablaAtributos">
+          <p class="panel-title"><i class="fas fa-search"></i> Consulta por atributo</p>
+          <div class="form-group">
+            <label>Capa</label>
+            <select id="queryLayerSelect" class="form-select">
+              <option value="">Seleccione una capa…</option>
+            </select>
+          </div>
+          <div id="attributesContainer" class="form-group" style="display:none">
+            <label>Atributo</label>
+            <select id="attributeSelect" class="form-select"></select>
+          </div>
+          <div id="filterContainer" class="form-group" style="display:none">
+            <label>Valor a buscar</label>
+            <input id="filterValue" type="text" class="form-input" placeholder="Ej: La Esperanza" />
+          </div>
+          <div class="tool-actions">
+            <button id="executeQuery"      class="btn btn-primary btn-sm" style="display:none">
+              <i class="fas fa-search"></i> Consultar
+            </button>
+            <button id="clearQueryResults" class="btn btn-ghost   btn-sm">Limpiar</button>
+          </div>
+          <select id="queryResultsSelect" class="form-select" style="margin-top:.5rem">
+            <option value="">Seleccione un resultado</option>
+          </select>
+          <div id="queryResults"></div>
+        </div>
+
+        <!-- CARGA DE ARCHIVOS -->
+        <div id="panel-upload" class="tool-panel" data-permiso="subirArchivos">
+          <p class="panel-title"><i class="fas fa-upload"></i> Cargar archivo</p>
+          <input id="uploadInput" type="file" multiple
+                 accept=".geojson,.json,.kml,.kmz,.gpx,.zip" hidden />
+          <button id="uploadTrigger" class="btn btn-primary btn-sm">
+            <i class="fas fa-folder-open"></i> Seleccionar archivo
+          </button>
+          <p class="hint-text">Soporta: GeoJSON, KML, KMZ, GPX, Shapefile (.zip)</p>
+          <div id="uploadResults"></div>
+          <button id="clearUploads" class="btn btn-ghost btn-sm" style="margin-top:.5rem">
+            <i class="fas fa-trash"></i> Limpiar todo
+          </button>
+        </div>
+
+        <!-- IMPRESIÓN -->
+        <div id="panel-print" class="tool-panel" data-permiso="imprimirMapa">
+          <div id="printRoot"></div>
+        </div>
+
+        <!-- CAPTURA COORDS -->
+        <div id="panel-coord" class="tool-panel" data-permiso="capturaCoords">
+          <p class="panel-title"><i class="fas fa-crosshairs"></i> Captura de coordenadas</p>
+          <div class="tool-actions">
+            <button id="btnCoordPickToggle" class="btn btn-primary btn-sm">Iniciar</button>
+            <button id="btnCoordPickClear"  class="btn btn-ghost  btn-sm">Limpiar</button>
+          </div>
+          <div id="coordPickDisplay" class="coord-display">Sin coordenadas.</div>
+          <div class="tool-actions" style="margin-top:.5rem">
+            <a id="coordPickGoogle" href="#" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">
+              <i class="fas fa-map-marker-alt"></i> Google Maps
+            </a>
+            <button id="coordPickZoom" class="btn btn-ghost btn-sm">
+              <i class="fas fa-search-plus"></i> Zoom
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /sidebar-body -->
+    </aside>
+
+    <!-- ── MAPA ──────────────────────────────────────────────── -->
+    <div class="map-container">
+      <div id="map">
+        <div class="map-placeholder">
+          <i class="fas fa-map fa-3x"></i>
+          <p>Cargando mapa…</p>
+        </div>
+      </div>
+
+      <!-- Controles del mapa -->
+      <div class="map-controls">
+        <button id="zoomInBtn"  class="map-ctrl-btn" title="Acercar"><i class="fas fa-plus"></i></button>
+        <button id="zoomOutBtn" class="map-ctrl-btn" title="Alejar"><i class="fas fa-minus"></i></button>
+        <button id="homeBtn"    class="map-ctrl-btn" title="Inicio"><i class="fas fa-home"></i></button>
+        <div class="map-ctrl-sep"></div>
+        <button id="basemapBtn" class="map-ctrl-btn" title="Mapa base"><i class="fas fa-map"></i></button>
+      </div>
+
+      <!-- Panel basemaps -->
+      <div id="basemapPanel" hidden>
+        <div class="bm-card active" data-key="osm">
+          <div class="bm-thumb bm-osm"></div><span>Callejero</span>
+        </div>
+        <div class="bm-card" data-key="sat">
+          <div class="bm-thumb bm-sat"></div><span>Satelital</span>
+        </div>
+        <div class="bm-card" data-key="terrain">
+          <div class="bm-thumb bm-terrain"></div><span>Terreno</span>
+        </div>
+      </div>
+
+      <!-- Panel info -->
+      <div id="infoPanel" hidden>
+        <div class="info-panel-header">
+          <span>Información del visor</span>
+          <button id="infoPanelClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="infoPanelBody" class="info-panel-body"></div>
+      </div>
+
+      <!-- Panel detalle de predio/patrimonio — predioPanel.js -->
+      <div id="predioPanel" hidden>
+        <div class="predio-panel-header">
+          <span>Información del predio</span>
+          <button id="predioPanelClose"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="predio-panel-body">
+          <div id="predioDetail" class="hidden">
+            <span id="predio-patrimonio-badge" class="patrimonio-badge hidden"></span>
+            <h3 id="predio-nombre"></h3>
+            <p id="predio-codigo" class="matricula"></p>
+            <p id="predio-matricula" class="matricula"></p>
+            <table class="data-table">
+              <tbody>
+                <tr><td>Dirección</td><td id="predio-direccion"></td></tr>
+                <tr><td>Área terreno</td><td id="predio-area-terreno"></td></tr>
+                <tr><td>Área construcción</td><td id="predio-area-construccion"></td></tr>
+                <tr><td>Destino</td><td id="predio-destino"></td></tr>
+              </tbody>
+            </table>
+            <div class="avaluo-box">
+              <p class="avaluo-label">Valor de avalúo</p>
+              <p id="predio-avaluo" class="avaluo-amount"></p>
+            </div>
+            <div id="predio-foto-box" class="foto-box hidden">
+              <img id="predio-foto" class="foto-fachada" alt="Foto de fachada del predio">
+            </div>
+            <div id="predio-foto-empty" class="foto-empty hidden">
+              <i class="fas fa-image"></i>
+              <p>Sin foto de fachada disponible</p>
+            </div>
+            <button id="btnPredioPdf" class="btn-pdf">Ver ficha de caracterización</button>
+            <button id="btnPredioFichaPatrimonio" class="btn-pdf btn-pdf-patrimonio hidden">Ver ficha de inventario patrimonial</button>
+          </div>
+          <div id="predioNoData" class="hidden">
+            <span id="predio-nodata-patrimonio" class="patrimonio-badge hidden"></span>
+            <p class="nodata-title">No se tenía información disponible</p>
+            <p id="predio-nodata-codigo" class="matricula"></p>
+            <button id="btnPredioNodataFichaPatrimonio" class="btn-pdf btn-pdf-patrimonio hidden">Ver ficha de inventario patrimonial</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dock capas activas — layers.js usa #zOrderDock y #zOrderList -->
+      <div id="zOrderDock">
+        <div class="dock-header" id="zOrderDockHeader" style="cursor:pointer" title="Minimizar/expandir">
+          <i class="fas fa-sort-amount-down"></i>&ensp;Capas activas
+          <i class="fas fa-chevron-down" id="zOrderDockChevron" style="margin-left:auto;font-size:.7rem"></i>
+        </div>
+        <ul id="zOrderList"></ul>
+      </div>
+
+    </div><!-- /map-container -->
+  </div><!-- /main-container -->
+
+  <!-- ══ BARRA COORDENADAS ════════════════════════════════════ -->
+  <div class="coordinates-bar">
+    <select id="coordFormat">
+      <option value="geo">Geográficas</option>
+      <option value="geod">Geodésicas (9377)</option>
+      <option value="plana">Planas (3857)</option>
+    </select>
+    <span id="coordLabel1" class="coord-lbl">Longitud:</span>
+    <span id="coordLon"    class="coord-val">—</span>
+    <span id="coordLabel2" class="coord-lbl">Latitud:</span>
+    <span id="coordLat"    class="coord-val">—</span>
+    <span class="coord-sep">|</span>
+    <span class="coord-lbl">Escala:</span>
+    <span id="coordScale"  class="coord-val">—</span>
+  </div>
+
+</div><!-- /mainApp -->
+
+<!-- Panel Street 360 flotante -->
+<div id="street360-panel" class="hidden">
+  <div class="s360-left" id="s360-viewer"></div>
+  <div class="s360-right" id="gsv-viewer"></div>
+  <button id="s360-close"><i class="fas fa-times"></i></button>
+</div>
+
+<!-- Scripts — todo dentro de DOMContentLoaded para que el DOM esté listo -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ── Nav herramientas ──────────────────────────────────────
+  const navBtns = document.querySelectorAll('.tool-nav-btn');
+  const panels  = document.querySelectorAll('.tool-panel');
+  navBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.panel;
+      navBtns.forEach(b => b.classList.remove('active'));
+      panels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(`panel-${target}`)?.classList.add('active');
+    });
+  });
+
+  // ── Toggle sidebar ────────────────────────────────────────
+  document.getElementById('btnToggleSidebar')?.addEventListener('click', () => {
+    document.getElementById('sidebar')?.classList.toggle('collapsed');
+  });
+
+  // ── Avatar inicial ────────────────────────────────────────
+  try {
+    const nombre = JSON.parse(localStorage.getItem('ctg_user') || '{}')?.nombre || 'U';
+    const el = document.getElementById('userInitials');
+    if (el) el.textContent = nombre.charAt(0).toUpperCase();
+  } catch {}
+
+  // ── Minimizar dock capas activas ──────────────────────────
+  document.getElementById('zOrderDockHeader')?.addEventListener('click', () => {
+    const list    = document.getElementById('zOrderList');
+    const chevron = document.getElementById('zOrderDockChevron');
+    const collapsed = list.style.display === 'none';
+    list.style.display = collapsed ? '' : 'none';
+    chevron.className  = collapsed ? 'fas fa-chevron-down' : 'fas fa-chevron-up';
+  });
+
+});
+</script>
+
+<!-- Datos catastrales (predios + patrimonio) — definen window.PREDIOS_DATA / window.PATRIMONIO_DATA -->
+<script src="data/predios_data.js"></script>
+<script src="data/patrimonio_data.js"></script>
+
+<script type="module" src="src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,856 @@
+[
+  {
+    "key": "predios",
+    "name": "Fichas de caracterización — Predios",
+    "layers": [],
+    "files": [
+      {
+        "id": "pdf_880010000000000010011000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-SAN-AND — 880010000000000010011000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010000000000010011000000000.pdf"
+      },
+      {
+        "id": "pdf_880010000000000030054000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010000000000030054000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010000000000030054000000000.pdf"
+      },
+      {
+        "id": "pdf_880010000000000070018000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-SAN-AND — 880010000000000070018000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010000000000070018000000000.pdf"
+      },
+      {
+        "id": "pdf_880010000000000070072000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-SAN-AND — 880010000000000070072000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010000000000070072000000000.pdf"
+      },
+      {
+        "id": "pdf_880010000000000130080000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-SAN-AND — 880010000000000130080000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010000000000130080000000000.pdf"
+      },
+      {
+        "id": "pdf_880010000000000142128000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010000000000142128000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010000000000142128000000000.pdf"
+      },
+      {
+        "id": "pdf_880010002000000030004000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010002000000030004000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010002000000030004000000000.pdf"
+      },
+      {
+        "id": "pdf_880010002000000110002000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010002000000110002000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010002000000110002000000000.pdf"
+      },
+      {
+        "id": "pdf_880010002000000120046000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-SAN-AND — 880010002000000120046000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010002000000120046000000000.pdf"
+      },
+      {
+        "id": "pdf_880010100000000030002000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010100000000030002000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010100000000030002000000000.pdf"
+      },
+      {
+        "id": "pdf_880010100000000190016000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010100000000190016000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010100000000190016000000000.pdf"
+      },
+      {
+        "id": "pdf_880010100000000190017000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010100000000190017000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010100000000190017000000000.pdf"
+      },
+      {
+        "id": "pdf_880010100000000190019000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-DE-SAN- — 880010100000000190019000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010100000000190019000000000.pdf"
+      },
+      {
+        "id": "pdf_880010100000002710001000000000",
+        "title": "DEPARTAMENTO-ARCHIPIELAGO-SAN-AND — 880010100000002710001000000000",
+        "type": "pdf",
+        "file": "data/pdfs/880010100000002710001000000000.pdf"
+      }
+    ]
+  },
+  {
+    "key": "patrimonio",
+    "name": "Fichas de inventario — Patrimonio cultural",
+    "layers": [],
+    "files": [
+      {
+        "id": "ficha_U-1",
+        "title": "U-1 — FORBES GIBSON JOSEPHINE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-1.pdf"
+      },
+      {
+        "id": "ficha_U-10",
+        "title": "U-10 — ABRAHAMS STALMAN VICTOR",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-10.pdf"
+      },
+      {
+        "id": "ficha_U-100",
+        "title": "U-100 — CANENCIA BRITTON RUTH",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-100.pdf"
+      },
+      {
+        "id": "ficha_U-101",
+        "title": "U-101 — SMITH WILSON HEWITT",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-101.pdf"
+      },
+      {
+        "id": "ficha_U-102",
+        "title": "U-102 — BRYAN COULSON PALMERSTON",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-102.pdf"
+      },
+      {
+        "id": "ficha_U-103",
+        "title": "U-103 — DUKE CASTRO JANE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-103.pdf"
+      },
+      {
+        "id": "ficha_U-104",
+        "title": "U-104 — ABRAHAMS STAALMAN TERESA-ELENA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-104.pdf"
+      },
+      {
+        "id": "ficha_U-105",
+        "title": "U-105 — MANUEL GORDON JINEI-LIBETH",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-105.pdf"
+      },
+      {
+        "id": "ficha_U-106",
+        "title": "U-106 — CORTES GARCIA JOSE-ALBERTO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-106.pdf"
+      },
+      {
+        "id": "ficha_U-107",
+        "title": "U-107 — FONSECA DIAZ ELKIN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-107.pdf"
+      },
+      {
+        "id": "ficha_U-108",
+        "title": "U-108 — BUSH HAWKINS CUZAC",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-108.pdf"
+      },
+      {
+        "id": "ficha_U-109",
+        "title": "U-109 — MUNOZ OSTERMANN VICTORIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-109.pdf"
+      },
+      {
+        "id": "ficha_U-11",
+        "title": "U-11 — FORBES WILLIAM OLGA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-11.pdf"
+      },
+      {
+        "id": "ficha_U-110",
+        "title": "U-110 — CONNOLY GOOD RICARDO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-110.pdf"
+      },
+      {
+        "id": "ficha_U-111",
+        "title": "U-111 — TAYLOR VARGAS GUILLERMINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-111.pdf"
+      },
+      {
+        "id": "ficha_U-112",
+        "title": "U-112 — ESCALONA HALL ALFREDO-ALARICO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-112.pdf"
+      },
+      {
+        "id": "ficha_U-113",
+        "title": "U-113 — WATSON DAVIS ROBERT",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-113.pdf"
+      },
+      {
+        "id": "ficha_U-114",
+        "title": "U-114 — INVERSIONES-CAMPO-ISLENO-S-A",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-114.pdf"
+      },
+      {
+        "id": "ficha_U-115",
+        "title": "U-115 — CELIS VELEZ ALBERTO-RAFAEL",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-115.pdf"
+      },
+      {
+        "id": "ficha_U-116",
+        "title": "U-116 — LAMAR MEJIA LUIS-ALFONSO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-116.pdf"
+      },
+      {
+        "id": "ficha_U-117",
+        "title": "U-117 — AUSTIN FORD SHERMAN-ANTONIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-117.pdf"
+      },
+      {
+        "id": "ficha_U-118",
+        "title": "U-118 — BRYAN FERNANDEZ FELIPE-FERNANDO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-118.pdf"
+      },
+      {
+        "id": "ficha_U-119",
+        "title": "U-119 — SMITH BRANT HEIDI",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-119.pdf"
+      },
+      {
+        "id": "ficha_U-12",
+        "title": "U-12 — FORBES HOWARD EVIDA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-12.pdf"
+      },
+      {
+        "id": "ficha_U-120",
+        "title": "U-120 — INVERSIONES-SABANETA-LIMITADA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-120.pdf"
+      },
+      {
+        "id": "ficha_U-121",
+        "title": "U-121 — Urbano",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-121.pdf"
+      },
+      {
+        "id": "ficha_U-122",
+        "title": "U-122 — MANUEL * MIGUEL ESTEBAN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-122.pdf"
+      },
+      {
+        "id": "ficha_U-123",
+        "title": "U-123 — VASQUEZ SANTANA VIRGINIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-123.pdf"
+      },
+      {
+        "id": "ficha_U-124",
+        "title": "U-124 — Urbano",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-124.pdf"
+      },
+      {
+        "id": "ficha_U-125",
+        "title": "U-125 — MITCHELL STEPHENSON ESTELIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-125.pdf"
+      },
+      {
+        "id": "ficha_U-126",
+        "title": "U-126 — ESCALONA BENT VERNA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-126.pdf"
+      },
+      {
+        "id": "ficha_U-13",
+        "title": "U-13 — THYME PINIS GERTY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-13.pdf"
+      },
+      {
+        "id": "ficha_U-14",
+        "title": "U-14 — HOWARD GONZALEZ JULIETH",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-14.pdf"
+      },
+      {
+        "id": "ficha_U-15",
+        "title": "U-15 — DAVIS BERNARD HURVIS",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-15.pdf"
+      },
+      {
+        "id": "ficha_U-16",
+        "title": "U-16 — AUSTIN BARKER DILMA-BARBARA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-16.pdf"
+      },
+      {
+        "id": "ficha_U-17",
+        "title": "U-17 — LUJAN GOMEZ JORGE-LUIS",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-17.pdf"
+      },
+      {
+        "id": "ficha_U-18",
+        "title": "U-18 — WATSON BROWN THEORA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-18.pdf"
+      },
+      {
+        "id": "ficha_U-19",
+        "title": "U-19 — JAMES ARCHBOLD HORTENCIA-MARIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-19.pdf"
+      },
+      {
+        "id": "ficha_U-2",
+        "title": "U-2 — GOMEZ CIFUENTES GILDARDO-ANTONIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-2.pdf"
+      },
+      {
+        "id": "ficha_U-20",
+        "title": "U-20 — SMITH FRANCIS ELEAN-DARIAIN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-20.pdf"
+      },
+      {
+        "id": "ficha_U-21",
+        "title": "U-21 — WILLIAMS BROWN JOAN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-21.pdf"
+      },
+      {
+        "id": "ficha_U-22",
+        "title": "U-22 — JAMES BARKER LETICIA-CARMELA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-22.pdf"
+      },
+      {
+        "id": "ficha_U-23",
+        "title": "U-23 — SMITH NEWBALL NELCY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-23.pdf"
+      },
+      {
+        "id": "ficha_U-24",
+        "title": "U-24 — BENT MC'LEAN BRISILDA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-24.pdf"
+      },
+      {
+        "id": "ficha_U-25",
+        "title": "U-25 — POMBO BERNARD AYOLIN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-25.pdf"
+      },
+      {
+        "id": "ficha_U-26",
+        "title": "U-26 — HUMPHRIES STEPHENS RENE-JOSE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-26.pdf"
+      },
+      {
+        "id": "ficha_U-27",
+        "title": "U-27 — JAMES CANTILLO PETER",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-27.pdf"
+      },
+      {
+        "id": "ficha_U-28",
+        "title": "U-28 — SILVA FORBES ANA-MARICIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-28.pdf"
+      },
+      {
+        "id": "ficha_U-29",
+        "title": "U-29 — ROBINSON STEPHENS LILIT",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-29.pdf"
+      },
+      {
+        "id": "ficha_U-3",
+        "title": "U-3 — CORPUS HOOKER FLORIE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-3.pdf"
+      },
+      {
+        "id": "ficha_U-30",
+        "title": "U-30 — OWKIN GALLARDO OMALINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-30.pdf"
+      },
+      {
+        "id": "ficha_U-31",
+        "title": "U-31 — CHOW WONG CHESTER-FRANCISCO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-31.pdf"
+      },
+      {
+        "id": "ficha_U-32",
+        "title": "U-32 — MANUEL WATSON AVELINO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-32.pdf"
+      },
+      {
+        "id": "ficha_U-33",
+        "title": "U-33 — HERNANDEZ ESPITIA MARTHA-PATRICIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-33.pdf"
+      },
+      {
+        "id": "ficha_U-34",
+        "title": "U-34 — PETERSON FORBES OLSEN-LENNIN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-34.pdf"
+      },
+      {
+        "id": "ficha_U-35",
+        "title": "U-35 — PETERSON FORERO DAVID-GONZALO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-35.pdf"
+      },
+      {
+        "id": "ficha_U-36",
+        "title": "U-36 — CHOW CRIOLLO YOLANDA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-36.pdf"
+      },
+      {
+        "id": "ficha_U-37",
+        "title": "U-37 — BAILEY WATSON ISOLIN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-37.pdf"
+      },
+      {
+        "id": "ficha_U-38",
+        "title": "U-38 — JAMES MITCHEL ALMA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-38.pdf"
+      },
+      {
+        "id": "ficha_U-39",
+        "title": "U-39 — JAMES THYME VELENA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-39.pdf"
+      },
+      {
+        "id": "ficha_U-4",
+        "title": "U-4 — JAMES BERNARD ORLINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-4.pdf"
+      },
+      {
+        "id": "ficha_U-40",
+        "title": "U-40 — MANUEL THYME BORTON-RODOLFO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-40.pdf"
+      },
+      {
+        "id": "ficha_U-41",
+        "title": "U-41 — DIAZ SMITH FLOR-ALBA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-41.pdf"
+      },
+      {
+        "id": "ficha_U-42",
+        "title": "U-42 — CASTO WHITAKER JULIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-42.pdf"
+      },
+      {
+        "id": "ficha_U-43",
+        "title": "U-43 — CHOW WONG DOWELL-WINCHI",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-43.pdf"
+      },
+      {
+        "id": "ficha_U-44",
+        "title": "U-44 — FORBES HUDSON UDEL-ALVARADO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-44.pdf"
+      },
+      {
+        "id": "ficha_U-45",
+        "title": "U-45 — DIAZ SMITH FLOR-ALBA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-45.pdf"
+      },
+      {
+        "id": "ficha_U-46",
+        "title": "U-46 — HUDGSON BISCAINO CARMEN-ALICIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-46.pdf"
+      },
+      {
+        "id": "ficha_U-47",
+        "title": "U-47 — BENITEZ SMITH LUZ-PAULINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-47.pdf"
+      },
+      {
+        "id": "ficha_U-48",
+        "title": "U-48 — IGLESIA-BAUTISTA-CENTRAL-SAN-ANDR",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-48.pdf"
+      },
+      {
+        "id": "ficha_U-49",
+        "title": "U-49 — OTERO FORBES NIEL-ANTONIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-49.pdf"
+      },
+      {
+        "id": "ficha_U-5",
+        "title": "U-5 — MITCHELL FORTH RUPERT",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-5.pdf"
+      },
+      {
+        "id": "ficha_U-50",
+        "title": "U-50 — DAVIS POWELL RICARDO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-50.pdf"
+      },
+      {
+        "id": "ficha_U-51",
+        "title": "U-51 — SMITH POMARE ERNESTO-ESVARD",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-51.pdf"
+      },
+      {
+        "id": "ficha_U-52",
+        "title": "U-52 — PROACTIVA-AGUAS-DEL-ARCHIPIELAGO-",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-52.pdf"
+      },
+      {
+        "id": "ficha_U-53",
+        "title": "U-53 — DAVIS SMITH CLAUDINA-ORLENA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-53.pdf"
+      },
+      {
+        "id": "ficha_U-54",
+        "title": "U-54 — PORRAS GOMEZ BERTHA-TULIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-54.pdf"
+      },
+      {
+        "id": "ficha_U-55",
+        "title": "U-55 — DAVIS FORBES ELRY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-55.pdf"
+      },
+      {
+        "id": "ficha_U-56",
+        "title": "U-56 — MANUEL BRYAN CLINTON-ALEJANDRO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-56.pdf"
+      },
+      {
+        "id": "ficha_U-57",
+        "title": "U-57 — WHITTAKER DUFFIS CARLOS",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-57.pdf"
+      },
+      {
+        "id": "ficha_U-58",
+        "title": "U-58 — VELEZ HOWARD RAUL-ENRIQUE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-58.pdf"
+      },
+      {
+        "id": "ficha_U-59",
+        "title": "U-59 — JAMES SMITH ORVILLE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-59.pdf"
+      },
+      {
+        "id": "ficha_U-6",
+        "title": "U-6 — DE-ARMAS GUEVARA ANGELINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-6.pdf"
+      },
+      {
+        "id": "ficha_U-60",
+        "title": "U-60 — POMARE CHISTHOPHER EULALIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-60.pdf"
+      },
+      {
+        "id": "ficha_U-61",
+        "title": "U-61 — RAMIREZ JAMES ALCIDES",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-61.pdf"
+      },
+      {
+        "id": "ficha_U-62",
+        "title": "U-62 — MEJIA MARTINEZ LUIS-EDUARDO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-62.pdf"
+      },
+      {
+        "id": "ficha_U-63",
+        "title": "U-63 — BATTIST GARCIA JOANA-MARTINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-63.pdf"
+      },
+      {
+        "id": "ficha_U-64",
+        "title": "U-64 — SJOGREEN SMITH CLENNIE-LEEN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-64.pdf"
+      },
+      {
+        "id": "ficha_U-65",
+        "title": "U-65 — THYME BERNARD WALDROFF",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-65.pdf"
+      },
+      {
+        "id": "ficha_U-66",
+        "title": "U-66 — BERNARD FORBES FLORENCIA-CRISTINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-66.pdf"
+      },
+      {
+        "id": "ficha_U-67",
+        "title": "U-67 — FORBES LEVER HERNANDEZ-HORACIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-67.pdf"
+      },
+      {
+        "id": "ficha_U-68",
+        "title": "U-68 — CASTRO STEELE LUIS-ANTONIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-68.pdf"
+      },
+      {
+        "id": "ficha_U-69",
+        "title": "U-69 — BRYAN DOMINGUEZ LINETTE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-69.pdf"
+      },
+      {
+        "id": "ficha_U-7",
+        "title": "U-7 — PALLARES DE-ARMAS-LIGIA-AMINTA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-7.pdf"
+      },
+      {
+        "id": "ficha_U-70",
+        "title": "U-70 — JAMES THYME FANNY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-70.pdf"
+      },
+      {
+        "id": "ficha_U-71",
+        "title": "U-71 — JAMES THYME BETTY-LINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-71.pdf"
+      },
+      {
+        "id": "ficha_U-72",
+        "title": "U-72 — FERRETERIA-SANTA-CATALINA-LIMITAD",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-72.pdf"
+      },
+      {
+        "id": "ficha_U-73",
+        "title": "U-73 — WILSON BRITTON ANA-CARMELA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-73.pdf"
+      },
+      {
+        "id": "ficha_U-74",
+        "title": "U-74 — BERNARD MANUEL DELTURNEY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-74.pdf"
+      },
+      {
+        "id": "ficha_U-75",
+        "title": "U-75 — ANIRO-S-EN-C-S",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-75.pdf"
+      },
+      {
+        "id": "ficha_U-76",
+        "title": "U-76 — BRYAN CHOW CATALINA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-76.pdf"
+      },
+      {
+        "id": "ficha_U-77",
+        "title": "U-77 — LINTON VELEZ CASILDA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-77.pdf"
+      },
+      {
+        "id": "ficha_U-78",
+        "title": "U-78 — FORBES FRANCIS ROBERTO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-78.pdf"
+      },
+      {
+        "id": "ficha_U-79",
+        "title": "U-79 — JAMES FORBES SHORLEY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-79.pdf"
+      },
+      {
+        "id": "ficha_U-8",
+        "title": "U-8 — WILLIAMS FORBES GERALDO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-8.pdf"
+      },
+      {
+        "id": "ficha_U-80",
+        "title": "U-80 — FORBES WATSON THEODOCIA-SUC",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-80.pdf"
+      },
+      {
+        "id": "ficha_U-81",
+        "title": "U-81 — BENT FORTH VALMA-ENELIDA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-81.pdf"
+      },
+      {
+        "id": "ficha_U-82",
+        "title": "U-82 — FORBES HOY ZAMIRA-JUANA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-82.pdf"
+      },
+      {
+        "id": "ficha_U-83",
+        "title": "U-83 — FORBES LEOVERS STELLA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-83.pdf"
+      },
+      {
+        "id": "ficha_U-84",
+        "title": "U-84 — CORPUS JAY ARNULFO-OLAYA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-84.pdf"
+      },
+      {
+        "id": "ficha_U-85",
+        "title": "U-85 — ARCHBOLD CERON CARLOS-ANTONIO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-85.pdf"
+      },
+      {
+        "id": "ficha_U-86",
+        "title": "U-86 — HOWARD GALLARDO PATRICIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-86.pdf"
+      },
+      {
+        "id": "ficha_U-87",
+        "title": "U-87 — FORBES SMITH IRMA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-87.pdf"
+      },
+      {
+        "id": "ficha_U-88",
+        "title": "U-88 — Urbano",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-88.pdf"
+      },
+      {
+        "id": "ficha_U-89",
+        "title": "U-89 — SMITH BENT JEM-OPAL",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-89.pdf"
+      },
+      {
+        "id": "ficha_U-9",
+        "title": "U-9 — ABRAHAM BENT MATILDE-EDUVIGES",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-9.pdf"
+      },
+      {
+        "id": "ficha_U-90",
+        "title": "U-90 — MC LEAN LOPEZ KEVIN",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-90.pdf"
+      },
+      {
+        "id": "ficha_U-91",
+        "title": "U-91 — FORBES HOOKER TESSIE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-91.pdf"
+      },
+      {
+        "id": "ficha_U-92",
+        "title": "U-92 — BERNAL BENT FELIPE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-92.pdf"
+      },
+      {
+        "id": "ficha_U-93",
+        "title": "U-93 — STEPHENS TOLEDO VERTIC-DELANO",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-93.pdf"
+      },
+      {
+        "id": "ficha_U-94",
+        "title": "U-94 — LOPEZ BALMACEDA CLAUDIA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-94.pdf"
+      },
+      {
+        "id": "ficha_U-95",
+        "title": "U-95 — POMARE JAMES WILLIE",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-95.pdf"
+      },
+      {
+        "id": "ficha_U-96",
+        "title": "U-96 — HAWKINS MANUEL FELIX-RAFAEL",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-96.pdf"
+      },
+      {
+        "id": "ficha_U-97",
+        "title": "U-97 — ROBINSON RANKIN NENNA-LUNG",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-97.pdf"
+      },
+      {
+        "id": "ficha_U-98",
+        "title": "U-98 — ESCALONA HUDGSON LUISA",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-98.pdf"
+      },
+      {
+        "id": "ficha_U-99",
+        "title": "U-99 — FORBES DAVIS ELRY",
+        "type": "pdf",
+        "file": "data/fichas_patrimonio/U-99.pdf"
+      }
+    ]
+  }
+]

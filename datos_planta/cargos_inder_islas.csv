@@ -1,0 +1,22 @@
+﻿grupo,nivel,denominacion,codigo,grado,n_cargos,costo_unitario,costo_total_mensual,costo_total_anual
+inder_islas,Directivo,Director General,9,22,1,21093334.6912,21093334.6912,253120016.29439998
+inder_islas,Directivo,Subdirector Administrativo y Financiero,9,20,1,21093334.6912,21093334.6912,253120016.29439998
+inder_islas,Directivo,Subdirector Técnico,9,20,1,21093334.6912,21093334.6912,253120016.29439998
+inder_islas,Directivo,Subdirector Operativo,9,20,1,21093334.6912,21093334.6912,253120016.29439998
+inder_islas,Asesor,Jefe Oficina Jurídica y de Contratación,115,14,1,20948482.655199997,20948482.655199997,251381791.86239997
+inder_islas,Asesor,Jefe Oficina Control Interno,115,14,1,20948482.655199997,20948482.655199997,251381791.86239997
+inder_islas,Asesor,Jefe Oficina de Comunicaciones y Participación Comunitaria,115,14,1,20948482.655199997,20948482.655199997,251381791.86239997
+inder_islas,Profesional,Profesional Especializado,222,15,2,10655272.380533332,21310544.761066664,255726537.13279998
+inder_islas,Profesional,Profesional Especializado,222,15,1,10655272.380533332,10655272.380533332,127863268.56639999
+inder_islas,Profesional,Profesional Universitario,219,11,1,7834632.0768,7834632.0768,94015584.9216
+inder_islas,Profesional,Profesional Universitario,219,11,1,7834632.0768,7834632.0768,94015584.9216
+inder_islas,Profesional,Profesional Universitario,219,11,3,7834632.0768,23503896.2304,282046754.7648
+inder_islas,Profesional,Profesional Universitario,219,11,1,7834632.0768,7834632.0768,94015584.9216
+inder_islas,Profesional,Profesional Universitario,219,11,2,7834632.0768,15669264.1536,188031169.8432
+inder_islas,Profesional,Profesional Universitario,219,11,1,7834632.0768,7834632.0768,94015584.9216
+inder_islas,Profesional,Profesional Universitario,219,11,1,7834632.0768,7834632.0768,94015584.9216
+inder_islas,Técnico,Técnico Operativo,314,14,1,5251869.0194666665,5251869.0194666665,63022428.2336
+inder_islas,Técnico,Técnico Operativo,314,14,1,5251869.0194666665,5251869.0194666665,63022428.2336
+inder_islas,Técnico,Técnico Operativo,314,14,1,5251869.0194666665,5251869.0194666665,63022428.2336
+inder_islas,Técnico,Técnico Operativo,314,14,1,5251869.0194666665,5251869.0194666665,63022428.2336
+inder_islas,Asistencial,Secretario Ejecutivo,485,23,1,5488857.125066667,5488857.125066667,65866285.5008

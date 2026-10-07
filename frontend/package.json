@@ -1,0 +1,19 @@
+{
+  "name": "gv-carmen-frontend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev":     "vite",
+    "build":   "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.1.0"
+  },
+  "dependencies": {
+    "ol":       "latest",
+    "proj4":    "^2.15.0",
+    "shpjs":    "^6.1.0",
+    "jszip":    "^3.10.1"
+  }
+}

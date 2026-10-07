@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Acceso — GeoVisor San Andrés</title>
+  <link rel="stylesheet" href="src/auth/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Fondo con partículas decorativas -->
+  <div class="login-bg">
+    <div class="login-bg-shape s1"></div>
+    <div class="login-bg-shape s2"></div>
+    <div class="login-bg-shape s3"></div>
+  </div>
+
+  <div class="login-wrapper">
+
+    <!-- Panel izquierdo — identidad del municipio -->
+    <div class="login-side">
+      <div class="login-side-inner">
+        <img src="brand/logo-alcaldia.png" alt="Gobernación de San Andrés"
+             class="side-logo" onerror="this.style.display='none'">
+        <div class="side-title">Archipiélago de<br><strong>San Andrés</strong></div>
+        <div class="side-divider"></div>
+        <div class="side-desc">
+          Avalúos y Patrimonio Cultural
+        </div>
+        <div class="side-tags">
+          <span class="side-tag"><i class="fas fa-map"></i> Catastro</span>
+          <span class="side-tag"><i class="fas fa-landmark"></i> Patrimonio</span>
+          <span class="side-tag"><i class="fas fa-coins"></i> Avalúos</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Panel derecho — formulario -->
+    <div class="login-card">
+
+      <!-- Logos superiores -->
+      <div class="login-logos">
+        <img src="brand/logo-ctglobal.png" alt="CTGlobal"
+             class="login-logo-img" onerror="this.replaceWith(this.nextElementSibling)">
+        <div class="login-logo-fallback" style="display:none">
+          <i class="fas fa-globe-americas" style="font-size:2rem;color:#0f3460"></i>
+        </div>
+      </div>
+
+      <div class="login-card-header">
+        <h1 class="login-title">GeoVisor</h1>
+        <p class="login-subtitle">Ingresa con tu cuenta institucional</p>
+      </div>
+
+      <form id="loginForm" novalidate>
+
+        <div class="form-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i> Correo electrónico
+          </label>
+          <input id="email" name="email" type="email" class="form-input"
+                 placeholder="usuario@correo.com"
+                 autocomplete="username" required />
+        </div>
+
+        <div class="form-group">
+          <label for="password">
+            <i class="fas fa-lock"></i> Contraseña
+          </label>
+          <div class="input-wrap">
+            <input id="password" name="password" type="password" class="form-input"
+                   placeholder="••••••••"
+                   autocomplete="current-password" required />
+            <button type="button" id="togglePwd" class="toggle-pwd" aria-label="Ver contraseña">
+              <i class="fas fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="loginError" class="login-error" hidden>
+          <i class="fas fa-circle-exclamation"></i>
+          <span id="loginErrorText"></span>
+        </div>
+
+        <button type="submit" id="btnLogin" class="btn-login">
+          <span id="btnLoginText">Ingresar al sistema</span>
+          <span id="btnLoginSpinner" class="spinner" hidden></span>
+          <i class="fas fa-arrow-right btn-arrow"></i>
+        </button>
+
+      </form>
+
+      <div class="login-footer">
+        <img src="brand/logo-ctglobal.png" alt="CTGlobal" class="footer-logo"
+             onerror="this.style.display='none'">
+        <span>Desarrollado por <strong>CTGlobal</strong> — Conexión Territorial Global SAS</span>
+        <span class="footer-version">GV-005 · 2026</span>
+      </div>
+
+    </div>
+  </div>
+
+  <script type="module" src="src/auth/login.js"></script>
+</body>
+</html>

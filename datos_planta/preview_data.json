@@ -1,0 +1,974 @@
+{
+ "meta": {
+  "titulo": "Rediseño Planta de Personal — San Andrés, Providencia y Santa Catalina",
+  "contrato": "CI-SGE-0005-2025 / CO1.PCCNTR.7884694",
+  "fuente": "ANEXO 2 FASE 3 — tablas 'Planta propuesta' por dependencia",
+  "nota_coords": "Ubicaciones aproximadas — pendiente georreferenciación oficial"
+ },
+ "totales": {
+  "actual": 501,
+  "propuesta": 821,
+  "delta": 320,
+  "n": 26,
+  "ok": 17
+ },
+ "dependencias": [
+  {
+   "slug": "oficina_asesora_juridica",
+   "nombre": "Oficina Asesora Jurídica",
+   "actual": 10,
+   "propuesta": 15,
+   "delta": 5,
+   "doc_actual": "10",
+   "doc_prop": "15",
+   "coincide": true,
+   "pagina": 29,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.5947,
+   "lon": -81.7006,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 10
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 3,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_control_interno_de_gestion",
+   "nombre": "Oficina de Control Interno de Gestión",
+   "actual": 5,
+   "propuesta": 9,
+   "delta": 4,
+   "doc_actual": "4",
+   "doc_prop": "8",
+   "coincide": false,
+   "pagina": 35,
+   "n_lineas": 9,
+   "tipo": "AP",
+   "lat": 12.60024,
+   "lon": -81.69524,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 4,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Director",
+     "actual": 0,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 0,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 0
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_control_interno_disciplinario",
+   "nombre": "Oficina de Control Interno Disciplinario",
+   "actual": 2,
+   "propuesta": 9,
+   "delta": 7,
+   "doc_actual": "2",
+   "doc_prop": "9",
+   "coincide": true,
+   "pagina": 44,
+   "n_lineas": 6,
+   "tipo": "AP",
+   "lat": 12.60418,
+   "lon": -81.68629,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Director",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_prensa_y_comunicaciones",
+   "nombre": "Oficina de Prensa y Comunicaciones",
+   "actual": 2,
+   "propuesta": 9,
+   "delta": 7,
+   "doc_actual": "2",
+   "doc_prop": "9",
+   "coincide": true,
+   "pagina": 52,
+   "n_lineas": 8,
+   "tipo": "AP",
+   "lat": 12.59219,
+   "lon": -81.69132,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 1,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "occre",
+   "nombre": "OCCRE",
+   "actual": 86,
+   "propuesta": 164,
+   "delta": 78,
+   "doc_actual": "86",
+   "doc_prop": "164",
+   "coincide": true,
+   "pagina": 62,
+   "n_lineas": 22,
+   "tipo": "AP",
+   "lat": 12.59379,
+   "lon": -81.68217,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 66,
+     "propuesta": 103
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 13,
+     "propuesta": 33
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 27
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_privada",
+   "nombre": "Secretaría Privada",
+   "actual": 6,
+   "propuesta": 8,
+   "delta": 2,
+   "doc_actual": "6",
+   "doc_prop": "7",
+   "coincide": false,
+   "pagina": 70,
+   "n_lineas": 6,
+   "tipo": "AP",
+   "lat": 12.5925,
+   "lon": -81.6718,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 5,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_planeacion",
+   "nombre": "Secretaría de Planeación",
+   "actual": 16,
+   "propuesta": 24,
+   "delta": 8,
+   "doc_actual": "16",
+   "doc_prop": "24",
+   "coincide": true,
+   "pagina": 79,
+   "n_lineas": 14,
+   "tipo": "AP",
+   "lat": 12.58591,
+   "lon": -81.6867,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 8,
+     "propuesta": 13
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 4,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 3,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_hacienda",
+   "nombre": "Secretaría de Hacienda",
+   "actual": 27,
+   "propuesta": 38,
+   "delta": 11,
+   "doc_actual": "27",
+   "doc_prop": "39",
+   "coincide": false,
+   "pagina": 90,
+   "n_lineas": 24,
+   "tipo": "AP",
+   "lat": 12.58277,
+   "lon": -81.67836,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 14
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 9,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 10,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 2,
+     "propuesta": 2
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_salud",
+   "nombre": "Secretaría de Salud",
+   "actual": 40,
+   "propuesta": 52,
+   "delta": 12,
+   "doc_actual": "40",
+   "doc_prop": "52",
+   "coincide": true,
+   "pagina": 105,
+   "n_lineas": 21,
+   "tipo": "AP",
+   "lat": 12.5769,
+   "lon": -81.6718,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 18,
+     "propuesta": 24
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 13,
+     "propuesta": 16
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 8,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_educacion",
+   "nombre": "Secretaría de Educación",
+   "actual": 20,
+   "propuesta": 28,
+   "delta": 8,
+   "doc_actual": "20",
+   "doc_prop": "27",
+   "coincide": false,
+   "pagina": 129,
+   "n_lineas": 15,
+   "tipo": "AP",
+   "lat": 12.57902,
+   "lon": -81.68908,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 10,
+     "propuesta": 18
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 7,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 2,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_agricultura_y_pesca",
+   "nombre": "Secretaría de Agricultura y Pesca",
+   "actual": 10,
+   "propuesta": 16,
+   "delta": 6,
+   "doc_actual": "10",
+   "doc_prop": "16",
+   "coincide": true,
+   "pagina": 143,
+   "n_lineas": 14,
+   "tipo": "AP",
+   "lat": 12.57272,
+   "lon": -81.68575,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 4,
+     "propuesta": 9
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 3,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 2,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_general",
+   "nombre": "Secretaría General",
+   "actual": 52,
+   "propuesta": 59,
+   "delta": 7,
+   "doc_actual": "52",
+   "doc_prop": "59",
+   "coincide": true,
+   "pagina": 162,
+   "n_lineas": 38,
+   "tipo": "AP",
+   "lat": 12.56522,
+   "lon": -81.68629,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 30,
+     "propuesta": 27
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 10,
+     "propuesta": 21
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 10,
+     "propuesta": 9
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 2,
+     "propuesta": 2
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_gobierno",
+   "nombre": "Secretaría de Gobierno",
+   "actual": 7,
+   "propuesta": 12,
+   "delta": 5,
+   "doc_actual": "7",
+   "doc_prop": "12",
+   "coincide": true,
+   "pagina": 180,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.57499,
+   "lon": -81.69725,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 1,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 4,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_desarrollo_social",
+   "nombre": "Secretaría de Desarrollo Social",
+   "actual": 10,
+   "propuesta": 22,
+   "delta": 12,
+   "doc_actual": "10",
+   "doc_prop": "22",
+   "coincide": true,
+   "pagina": 196,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.5687,
+   "lon": -81.7006,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 8,
+     "propuesta": 14
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_movilidad",
+   "nombre": "Secretaría de Movilidad",
+   "actual": 27,
+   "propuesta": 43,
+   "delta": 16,
+   "doc_actual": "27",
+   "doc_prop": "42",
+   "coincide": false,
+   "pagina": 208,
+   "n_lineas": 15,
+   "tipo": "AP",
+   "lat": 12.56334,
+   "lon": -81.70797,
+   "niveles": [
+    {
+     "nivel": "Técnico",
+     "actual": 17,
+     "propuesta": 29
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 7,
+     "propuesta": 8
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_turismo",
+   "nombre": "Secretaría de Turismo",
+   "actual": 8,
+   "propuesta": 21,
+   "delta": 13,
+   "doc_actual": "8",
+   "doc_prop": "21",
+   "coincide": true,
+   "pagina": 217,
+   "n_lineas": 12,
+   "tipo": "AP",
+   "lat": 12.57585,
+   "lon": -81.70711,
+   "niveles": [
+    {
+     "nivel": "Técnico",
+     "actual": 2,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 3,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_infraestructura",
+   "nombre": "Secretaría de Infraestructura",
+   "actual": 22,
+   "propuesta": 38,
+   "delta": 16,
+   "doc_actual": "23",
+   "doc_prop": "38",
+   "coincide": false,
+   "pagina": 229,
+   "n_lineas": 24,
+   "tipo": "AP",
+   "lat": 12.57272,
+   "lon": -81.71545,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 8,
+     "propuesta": 17
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 10,
+     "propuesta": 15
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 3,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_servicios_publicos_y_medio_ambiente",
+   "nombre": "Secretaría de Servicios Públicos y Medio Ambiente",
+   "actual": 6,
+   "propuesta": 24,
+   "delta": 18,
+   "doc_actual": "6",
+   "doc_prop": "23",
+   "coincide": false,
+   "pagina": 244,
+   "n_lineas": 18,
+   "tipo": "AP",
+   "lat": 12.5722,
+   "lon": -81.72595,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 2,
+     "propuesta": 8
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_cultura",
+   "nombre": "Secretaría de Cultura",
+   "actual": 5,
+   "propuesta": 13,
+   "delta": 8,
+   "doc_actual": "5",
+   "doc_prop": "13",
+   "coincide": true,
+   "pagina": 255,
+   "n_lineas": 12,
+   "tipo": "AP",
+   "lat": 12.58115,
+   "lon": -81.71369,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 2,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_tic",
+   "nombre": "Secretaría TIC",
+   "actual": 33,
+   "propuesta": 30,
+   "delta": -3,
+   "doc_actual": "33",
+   "doc_prop": "30",
+   "coincide": true,
+   "pagina": 272,
+   "n_lineas": 15,
+   "tipo": "AP",
+   "lat": 12.58277,
+   "lon": -81.72284,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 13,
+     "propuesta": 13
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 15,
+     "propuesta": 12
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 4,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_seguridad_y_convivencia_ciudadana",
+   "nombre": "Secretaría de Seguridad y Convivencia Ciudadana",
+   "actual": 30,
+   "propuesta": 33,
+   "delta": 3,
+   "doc_actual": "30",
+   "doc_prop": "33",
+   "coincide": true,
+   "pagina": 290,
+   "n_lineas": 18,
+   "tipo": "AP",
+   "lat": 12.58735,
+   "lon": -81.73118,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 13,
+     "propuesta": 20
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 11,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 5,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_gestion_del_riesgo",
+   "nombre": "Secretaría de Gestión del Riesgo",
+   "actual": 64,
+   "propuesta": 99,
+   "delta": 35,
+   "doc_actual": "64",
+   "doc_prop": "99",
+   "coincide": true,
+   "pagina": 306,
+   "n_lineas": 23,
+   "tipo": "AP",
+   "lat": 12.58825,
+   "lon": -81.71369,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 54,
+     "propuesta": 80
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 5,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 3,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_la_mujer_y_equidad_de_genero",
+   "nombre": "Secretaría de la Mujer y Equidad de Género",
+   "actual": 9,
+   "propuesta": 14,
+   "delta": 5,
+   "doc_actual": "9",
+   "doc_prop": "11",
+   "coincide": false,
+   "pagina": 316,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.59379,
+   "lon": -81.71903,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 10
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_la_juventud",
+   "nombre": "Secretaría de la Juventud",
+   "actual": 4,
+   "propuesta": 10,
+   "delta": 6,
+   "doc_actual": "4",
+   "doc_prop": "10",
+   "coincide": true,
+   "pagina": 324,
+   "n_lineas": 11,
+   "tipo": "AP",
+   "lat": 12.60117,
+   "lon": -81.72102,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 1,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 0,
+     "propuesta": 0
+    }
+   ]
+  },
+  {
+   "slug": "inder_islas",
+   "nombre": "INDER ISLAS",
+   "actual": 0,
+   "propuesta": 25,
+   "delta": 25,
+   "doc_actual": "0",
+   "doc_prop": "25",
+   "coincide": true,
+   "pagina": 337,
+   "n_lineas": 21,
+   "tipo": "N",
+   "lat": 12.59355,
+   "lon": -81.70711,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 13
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 0,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 0,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_contratacion",
+   "nombre": "Oficina de Contratación",
+   "actual": 0,
+   "propuesta": 6,
+   "delta": 6,
+   "doc_actual": "",
+   "doc_prop": "",
+   "coincide": false,
+   "pagina": 343,
+   "n_lineas": 4,
+   "tipo": "N",
+   "lat": 12.60024,
+   "lon": -81.70596,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  }
+ ]
+}

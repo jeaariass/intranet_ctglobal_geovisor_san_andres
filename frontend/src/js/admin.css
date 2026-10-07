@@ -1,0 +1,154 @@
+/* frontend/src/js/admin.css */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body.admin-body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f3f4f6;
+  min-height: 100dvh;
+}
+
+/* ── Header ── */
+.admin-header {
+  background: #0f3460;
+  color: #fff;
+  padding: .7rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+}
+.admin-header-left  { display: flex; align-items: center; gap: 1rem; }
+.admin-header h1    { font-size: 1rem; font-weight: 700; margin: 0; display: flex; align-items: center; gap: .45rem; }
+.back-link          { color: #93c5fd; font-size: .83rem; text-decoration: none; display: flex; align-items: center; gap: .35rem; }
+.back-link:hover    { text-decoration: underline; }
+.admin-header-right { display: flex; align-items: center; gap: .6rem; }
+
+.user-chip-sm {
+  background: rgba(255,255,255,.1); border-radius: 20px;
+  padding: .25rem .7rem; font-size: .78rem; color: #e5e7eb;
+  display: flex; align-items: center; gap: .4rem;
+}
+.user-chip-sm em { color: #86efac; font-style: normal; font-weight: 700; font-size: .72rem; }
+
+/* ── Botones ── */
+.btn-sm {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .38rem .8rem; border-radius: 7px; border: none;
+  font-size: .83rem; font-weight: 600; cursor: pointer;
+  transition: opacity .15s, transform .1s;
+}
+.btn-sm:hover:not(:disabled)  { opacity: .85; }
+.btn-sm:active                { transform: scale(.97); }
+.btn-sm:disabled              { opacity: .5; cursor: not-allowed; }
+.btn-primary  { background: #0f3460; color: #fff; }
+.btn-danger   { background: #dc2626; color: #fff; }
+.btn-ghost    { background: #e5e7eb; color: #374151; }
+
+/* ── Main ── */
+.admin-main { max-width: 1050px; margin: 1.25rem auto; padding: 0 1rem; }
+
+.admin-toolbar {
+  display: flex; gap: .65rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+.search-input {
+  flex: 1; min-width: 200px; padding: .48rem .75rem;
+  border: 1.5px solid #d1d5db; border-radius: 8px;
+  font-size: .88rem; outline: none;
+}
+.search-input:focus { border-color: #0f3460; }
+
+/* ── Resumen roles ── */
+.role-summary {
+  display: flex; gap: .75rem; margin-bottom: 1rem; flex-wrap: wrap;
+}
+.rs-card {
+  background: #fff; border: 1px solid #e5e7eb;
+  border-radius: 10px; padding: .65rem 1.1rem;
+  display: flex; flex-direction: column; align-items: center; gap: .15rem;
+  min-width: 90px;
+}
+.rs-count { font-size: 1.5rem; font-weight: 900; color: #0f3460; }
+.rs-label { font-size: .73rem; color: #6b7280; font-weight: 600; }
+
+/* ── Tabla ── */
+.table-wrap {
+  background: #fff; border-radius: 12px;
+  border: 1px solid #e5e7eb; overflow: auto;
+}
+.users-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.users-table th {
+  background: #f9fafb; padding: .7rem 1rem;
+  text-align: left; font-weight: 700; color: #374151;
+  border-bottom: 1px solid #e5e7eb; white-space: nowrap;
+}
+.users-table td {
+  padding: .6rem 1rem; border-bottom: 1px solid #f3f4f6; color: #111827;
+}
+.users-table tr:last-child td { border-bottom: none; }
+.users-table tr:hover td { background: #f9fafb; }
+
+.td-email { color: #4b5563; font-size: .82rem; }
+.td-actions { display: flex; gap: .3rem; }
+
+.tbl-loading, .tbl-empty { text-align: center; padding: 2rem; color: #9ca3af; }
+.tbl-error { text-align: center; padding: 2rem; color: #dc2626; }
+
+.rol-badge {
+  display: inline-block; padding: .2rem .55rem;
+  border-radius: 12px; font-size: .77rem; font-weight: 700;
+}
+.estado-badge {
+  display: inline-block; padding: .2rem .55rem;
+  border-radius: 12px; font-size: .77rem; font-weight: 600;
+}
+.est-activo  { background: #dcfce7; color: #16a34a; }
+.est-inactivo{ background: #fee2e2; color: #dc2626; }
+
+.icon-btn {
+  background: none; border: none; cursor: pointer;
+  font-size: .95rem; padding: .25rem .35rem; border-radius: 5px;
+  transition: background .12s;
+}
+.icon-btn:hover { background: #f3f4f6; }
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,.45);
+  z-index: 9000; display: flex;
+  align-items: center; justify-content: center; padding: 1rem;
+}
+.modal-overlay[hidden] { display: none; }
+
+.modal-card {
+  background: #fff; border-radius: 14px;
+  width: min(480px, 100%);
+  box-shadow: 0 24px 60px rgba(0,0,0,.25);
+  padding: 1.5rem;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 1.15rem;
+}
+.modal-header h2 { font-size: 1.05rem; margin: 0; color: #111827; }
+.modal-close {
+  background: none; border: none; color: #6b7280;
+  cursor: pointer; font-size: 1rem; padding: .2rem .4rem; border-radius: 5px;
+}
+.modal-close:hover { color: #111827; background: #f3f4f6; }
+
+.modal-actions {
+  display: flex; justify-content: flex-end; gap: .5rem;
+  margin-top: 1.2rem; padding-top: .9rem; border-top: 1px solid #e5e7eb;
+}
+
+/* reutilizar form-group / form-input de login.css */
+.hint-inline { color: #9ca3af; font-size: .76rem; font-weight: 400; margin-left: .3rem; }
+
+.spinner {
+  width: 15px; height: 15px;
+  border: 2px solid rgba(255,255,255,.35);
+  border-top-color: #fff; border-radius: 50%;
+  animation: spin .7s linear infinite; display: inline-block;
+}
+@keyframes spin { to { transform: rotate(360deg); } }

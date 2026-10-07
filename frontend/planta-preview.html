@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Revisión Planta de Personal — San Andrés · Vista preliminar</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@10.3.1/ol.css" />
+  <script src="https://cdn.jsdelivr.net/npm/ol@10.3.1/dist/ol.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+  /* ============================================================
+     Vista preliminar — Rediseño Planta de Personal San Andrés
+     Sistema de estilos tomado de frontend/src/js/style.css
+     ============================================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --primary-blue:   #2563eb;
+    --primary-green:  #059669;
+    --primary-orange: #ea580c;
+    --bg-white:       #ffffff;
+    --bg-gray-50:     #f9fafb;
+    --bg-gray-100:    #f3f4f6;
+    --text-dark:      #1f2937;
+    --text-gray:      #6b7280;
+    --border-light:   #e5e7eb;
+    --border-gray:    #d1d5db;
+    --shadow-sm:  0 1px 2px rgba(0,0,0,.05);
+    --shadow:     0 1px 3px rgba(0,0,0,.1);
+    --shadow-md:  0 4px 6px -1px rgba(0,0,0,.1);
+    --shadow-lg:  0 10px 15px -3px rgba(0,0,0,.1);
+    --sidebar-w:  388px;
+    --header-h:   64px;
+    --coordbar-h: 34px;
+    --radius:     10px;
+  }
+
+  html, body {
+    height: 100%;
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: #fff; color: var(--text-dark); overflow: hidden;
+  }
+  #app { display: flex; flex-direction: column; height: 100vh; }
+
+  /* ── HEADER ── */
+  .header {
+    height: var(--header-h); background: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 0 1.25rem; display: flex; justify-content: space-between; align-items: center;
+    box-shadow: var(--shadow-sm); position: relative; z-index: 400; flex-shrink: 0;
+  }
+  .header-left { display: flex; align-items: center; gap: 1.4rem; }
+  .logo { display: flex; align-items: center; gap: .7rem; }
+  .logo-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+    border-radius: 9px; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 1.05rem; flex-shrink: 0;
+  }
+  .logo-text h2 { font-size: 1rem; font-weight: 700; line-height: 1.15; }
+  .logo-text p  { font-size: .74rem; color: var(--text-gray); }
+  .breadcrumb { display: flex; align-items: center; gap: .45rem; font-size: .82rem; color: var(--text-gray); }
+  .breadcrumb i { font-size: .68rem; }
+  .breadcrumb .crumb-strong { color: var(--text-dark); font-weight: 600; }
+
+  .badge-preview {
+    display: inline-flex; align-items: center; gap: .4rem;
+    background: #fff7ed; color: var(--primary-orange);
+    border: 1px solid #fed7aa; border-radius: 999px;
+    padding: .28rem .7rem; font-size: .72rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .04em;
+  }
+
+  /* ── LAYOUT ── */
+  .main-container { display: flex; flex: 1; overflow: hidden; min-height: 0; }
+
+  .sidebar {
+    width: var(--sidebar-w); background: var(--bg-white);
+    border-right: 1px solid var(--border-light);
+    display: flex; flex-direction: column; overflow: hidden; flex-shrink: 0;
+  }
+  .sidebar-header { padding: .85rem 1rem .7rem; border-bottom: 1px solid var(--border-light); }
+  .sidebar-title {
+    font-size: .72rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; color: var(--text-gray);
+    display: flex; align-items: center; gap: .45rem;
+  }
+
+  /* KPI resumen */
+  .kpi-wrap { padding: .85rem 1rem; border-bottom: 1px solid var(--border-light); background: var(--bg-gray-50); }
+  .kpi-flow { display: flex; align-items: stretch; gap: .5rem; }
+  .kpi {
+    flex: 1; background: var(--bg-white); border: 1px solid var(--border-light);
+    border-radius: var(--radius); padding: .6rem .7rem; text-align: center;
+  }
+  .kpi .k-label { font-size: .66rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-gray); }
+  .kpi .k-value { font-size: 1.5rem; font-weight: 800; line-height: 1.3; color: var(--text-dark); }
+  .kpi .k-sub   { font-size: .68rem; color: var(--text-gray); }
+  .kpi-arrow { display: flex; align-items: center; color: var(--primary-green); font-size: 1rem; }
+  .kpi.kpi-delta { border-color: #a7f3d0; background: #ecfdf5; }
+  .kpi.kpi-delta .k-value { color: var(--primary-green); }
+  .kpi-note {
+    margin-top: .6rem; font-size: .72rem; color: var(--text-gray);
+    display: flex; align-items: flex-start; gap: .4rem; line-height: 1.4;
+  }
+  .kpi-note i { color: var(--primary-orange); margin-top: .12rem; }
+
+  .list-toolbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: .55rem 1rem; border-bottom: 1px solid var(--border-light);
+    font-size: .74rem; color: var(--text-gray);
+  }
+  .list-toolbar select {
+    border: 1px solid var(--border-gray); border-radius: 7px;
+    font-size: .74rem; padding: .18rem .4rem; color: var(--text-dark); background: #fff; cursor: pointer;
+  }
+
+  .dep-list { flex: 1; overflow-y: auto; min-height: 0; padding: .4rem .55rem; }
+  .dep-list::-webkit-scrollbar { width: 6px; }
+  .dep-list::-webkit-scrollbar-thumb { background: var(--border-gray); border-radius: 3px; }
+
+  .dep-card {
+    border: 1px solid var(--border-light); border-radius: var(--radius);
+    padding: .6rem .7rem; margin-bottom: .4rem; cursor: pointer;
+    transition: border-color .15s, box-shadow .15s, background .15s;
+  }
+  .dep-card:hover { border-color: var(--primary-blue); background: var(--bg-gray-50); }
+  .dep-card.active { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(37,99,235,.12); background: #fff; }
+  .dep-card__top { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem; }
+  .dep-card__name { font-size: .84rem; font-weight: 700; color: var(--text-dark); line-height: 1.25; }
+  .dep-card__delta {
+    flex-shrink: 0; font-size: .76rem; font-weight: 800;
+    color: var(--primary-green); background: #ecfdf5; border: 1px solid #a7f3d0;
+    border-radius: 999px; padding: .05rem .5rem; white-space: nowrap;
+  }
+  .dep-card__delta.neg { color: #b91c1c; background: #fef2f2; border-color: #fecaca; }
+  .dep-card__delta.zero { color: var(--text-gray); background: var(--bg-gray-100); border-color: var(--border-light); }
+  .bar-dual { margin-top: .5rem; display: flex; flex-direction: column; gap: 3px; }
+  .bar-row { display: flex; align-items: center; gap: .4rem; font-size: .68rem; color: var(--text-gray); }
+  .bar-row .bl { width: 46px; flex-shrink: 0; text-transform: uppercase; letter-spacing: .03em; font-weight: 700; }
+  .bar-track { flex: 1; height: 8px; background: var(--bg-gray-100); border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; }
+  .bar-fill.actual { background: var(--border-gray); }
+  .bar-fill.prop   { background: linear-gradient(90deg, var(--primary-blue), var(--primary-green)); }
+  .bar-row .bv { width: 26px; text-align: right; font-weight: 700; color: var(--text-dark); }
+  .dep-card__flags { margin-top: .45rem; display: flex; gap: .35rem; flex-wrap: wrap; }
+  .flag {
+    font-size: .64rem; font-weight: 700; border-radius: 5px; padding: .08rem .4rem;
+    display: inline-flex; align-items: center; gap: .25rem;
+  }
+  .flag.rev  { background: #fff7ed; color: var(--primary-orange); border: 1px solid #fed7aa; }
+  .flag.ok   { background: #ecfdf5; color: var(--primary-green); border: 1px solid #a7f3d0; }
+  .flag.pg   { background: var(--bg-gray-100); color: var(--text-gray); border: 1px solid var(--border-light); }
+
+  /* ── MAPA ── */
+  .map-container { position: relative; flex: 1; min-width: 0; background: #dfe6ee; }
+  #map { position: absolute; inset: 0; }
+  .ol-zoom { display: none; }
+
+  .map-legend {
+    position: absolute; left: .8rem; bottom: calc(.8rem); z-index: 30;
+    background: rgba(255,255,255,.96); border: 1px solid var(--border-light);
+    border-radius: var(--radius); box-shadow: var(--shadow-md);
+    padding: .6rem .75rem; font-size: .74rem; max-width: 230px;
+  }
+  .map-legend h4 { font-size: .68rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-gray); margin-bottom: .4rem; }
+  .legend-row { display: flex; align-items: center; gap: .5rem; margin-bottom: .28rem; color: var(--text-dark); }
+  .legend-dot { border-radius: 50%; background: var(--primary-green); opacity: .75; border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(5,150,105,.5); flex-shrink: 0; }
+
+  .map-controls { position: absolute; right: .75rem; top: .75rem; display: flex; flex-direction: column; gap: 4px; z-index: 30; }
+  .map-ctrl-btn {
+    width: 34px; height: 34px; background: var(--bg-white);
+    border: 1px solid var(--border-light); border-radius: 8px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: .85rem; color: var(--text-dark); box-shadow: var(--shadow); transition: all .15s;
+  }
+  .map-ctrl-btn:hover { background: var(--primary-blue); color: #fff; border-color: var(--primary-blue); }
+
+  /* Popup mapa */
+  .ol-popup {
+    position: absolute; background: #fff; box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-light); border-radius: var(--radius);
+    padding: .6rem .75rem; min-width: 200px; font-size: .8rem;
+    bottom: 14px; left: -100px; transform: translateX(50%);
+  }
+  .ol-popup::after {
+    content: ""; position: absolute; bottom: -9px; left: calc(50% - 9px);
+    border: 9px solid transparent; border-top-color: #fff;
+  }
+  .ol-popup h5 { font-size: .82rem; margin-bottom: .2rem; }
+  .ol-popup .pp-flow { color: var(--primary-green); font-weight: 800; }
+
+  /* ── PANEL DETALLE ── */
+  .detail {
+    position: absolute; right: .8rem; top: .8rem; width: 320px; z-index: 40;
+    background: var(--bg-white); border: 1px solid var(--border-light);
+    border-radius: var(--radius); box-shadow: var(--shadow-lg); overflow: hidden;
+    display: flex; flex-direction: column; max-height: calc(100% - 1.6rem);
+  }
+  .detail[hidden] { display: none; }
+  .detail__head {
+    background: linear-gradient(135deg, var(--primary-blue), #1d4ed8); color: #fff;
+    padding: .7rem .85rem; display: flex; justify-content: space-between; align-items: flex-start; gap: .5rem;
+  }
+  .detail__head h3 { font-size: .92rem; font-weight: 700; line-height: 1.25; }
+  .detail__head button { background: rgba(255,255,255,.15); border: none; color: #fff; width: 24px; height: 24px; border-radius: 6px; cursor: pointer; flex-shrink: 0; }
+  .detail__head button:hover { background: rgba(255,255,255,.3); }
+  .detail__body { padding: .85rem; overflow-y: auto; }
+
+  .flow-big { display: flex; align-items: center; justify-content: center; gap: .9rem; margin-bottom: .3rem; }
+  .flow-big .fb { text-align: center; }
+  .flow-big .fb .n { font-size: 1.9rem; font-weight: 800; line-height: 1; }
+  .flow-big .fb .l { font-size: .64rem; text-transform: uppercase; letter-spacing: .05em; color: var(--text-gray); margin-top: .2rem; }
+  .flow-big .fb.now .n { color: var(--text-gray); }
+  .flow-big .fb.next .n { color: var(--primary-blue); }
+  .flow-big i { color: var(--primary-green); font-size: 1.1rem; }
+  .flow-delta { text-align: center; font-size: .8rem; font-weight: 700; color: var(--primary-green); margin-bottom: .8rem; }
+  .flow-delta.neg { color: #b91c1c; }
+
+  .detail h4 {
+    font-size: .68rem; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--text-gray); margin: .7rem 0 .45rem; border-bottom: 1px solid var(--border-light); padding-bottom: .25rem;
+  }
+  .niv-row { margin-bottom: .55rem; }
+  .niv-row__top { display: flex; justify-content: space-between; font-size: .76rem; margin-bottom: .2rem; }
+  .niv-row__top .nn { font-weight: 700; color: var(--text-dark); }
+  .niv-row__top .nv { color: var(--text-gray); }
+  .niv-row__top .nv b { color: var(--primary-blue); }
+  .niv-track { height: 7px; background: var(--bg-gray-100); border-radius: 4px; position: relative; overflow: hidden; }
+  .niv-actual { position: absolute; inset: 0 auto 0 0; background: var(--border-gray); border-radius: 4px; }
+  .niv-prop   { position: absolute; inset: 0 auto 0 0; background: linear-gradient(90deg, var(--primary-blue), var(--primary-green)); border-radius: 4px; opacity: .9; }
+
+  .detail__meta { margin-top: .6rem; display: flex; flex-wrap: wrap; gap: .35rem; }
+  .detail__note {
+    margin-top: .7rem; font-size: .72rem; color: var(--text-gray);
+    background: var(--bg-gray-50); border: 1px solid var(--border-light);
+    border-radius: 8px; padding: .5rem .6rem; line-height: 1.45;
+    display: flex; gap: .4rem;
+  }
+  .detail__note.warn { background: #fff7ed; border-color: #fed7aa; color: #9a3412; }
+  .detail__note i { margin-top: .1rem; flex-shrink: 0; }
+
+  /* ── BARRA INFERIOR ── */
+  .statusbar {
+    height: var(--coordbar-h); background: var(--bg-gray-50);
+    border-top: 1px solid var(--border-light);
+    display: flex; align-items: center; gap: .9rem;
+    padding: 0 1rem; font-size: .74rem; color: var(--text-gray); flex-shrink: 0;
+  }
+  .statusbar .sb-strong { color: var(--text-dark); font-weight: 600; }
+  .statusbar .sep { color: var(--border-gray); }
+
+  @media (max-width: 860px) {
+    .sidebar { position: absolute; z-index: 300; height: 100%; box-shadow: var(--shadow-lg); }
+    .detail { display: none; }
+  }
+  </style>
+</head>
+<body>
+<div id="app">
+
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-sitemap"></i></div>
+        <div class="logo-text">
+          <h2>GeoVisor · Revisión Documental</h2>
+          <p>Rediseño Planta de Personal — San Andrés, Providencia y Santa Catalina</p>
+        </div>
+      </div>
+      <nav class="breadcrumb">
+        <i class="fas fa-folder-open"></i><span>Estudio Técnico de Rediseño Institucional</span>
+        <i class="fas fa-chevron-right"></i><span class="crumb-strong">Medición de cargas — planta por dependencia</span>
+      </nav>
+    </div>
+    <div class="badge-preview"><i class="fas fa-flask"></i> Vista preliminar</div>
+  </header>
+
+  <div class="main-container">
+
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-title"><i class="fas fa-list-check"></i> Dependencias del estudio</div>
+      </div>
+
+      <div class="kpi-wrap">
+        <div class="kpi-flow">
+          <div class="kpi">
+            <div class="k-label">Planta actual</div>
+            <div class="k-value" id="kpiActual">—</div>
+            <div class="k-sub">Dto 0782 / 0783 de 2023</div>
+          </div>
+          <div class="kpi-arrow"><i class="fas fa-arrow-right-long"></i></div>
+          <div class="kpi">
+            <div class="k-label">Planta propuesta</div>
+            <div class="k-value" id="kpiProp">—</div>
+            <div class="k-sub">medición de cargas</div>
+          </div>
+          <div class="kpi kpi-delta">
+            <div class="k-label">Variación</div>
+            <div class="k-value" id="kpiDelta">—</div>
+            <div class="k-sub" id="kpiPct">—</div>
+          </div>
+        </div>
+        <div class="kpi-note">
+          <i class="fas fa-circle-info"></i>
+          <span><b id="kpiN">26</b> dependencias · <b id="kpiOk">17</b> cuadran con el TOTAL del documento;
+          el resto queda marcado <b style="color:var(--primary-orange)">Revisar</b>.</span>
+        </div>
+      </div>
+
+      <div class="list-toolbar">
+        <span>Ordenar por</span>
+        <select id="sortSel">
+          <option value="delta">Mayor crecimiento</option>
+          <option value="prop">Planta propuesta</option>
+          <option value="actual">Planta actual</option>
+          <option value="nombre">Nombre (A–Z)</option>
+          <option value="revisar">Marcadas "Revisar"</option>
+        </select>
+      </div>
+
+      <div class="dep-list" id="depList"></div>
+    </aside>
+
+    <!-- ── MAPA ── -->
+    <div class="map-container">
+      <div id="map"></div>
+      <div id="popup" class="ol-popup" hidden></div>
+
+      <div class="map-controls">
+        <button class="map-ctrl-btn" id="zIn"  title="Acercar"><i class="fas fa-plus"></i></button>
+        <button class="map-ctrl-btn" id="zOut" title="Alejar"><i class="fas fa-minus"></i></button>
+        <button class="map-ctrl-btn" id="zHome" title="Vista general"><i class="fas fa-house"></i></button>
+      </div>
+
+      <div class="map-legend">
+        <h4>Tamaño = planta propuesta</h4>
+        <div class="legend-row"><span class="legend-dot" style="width:10px;height:10px"></span> ≤ 10 empleos</div>
+        <div class="legend-row"><span class="legend-dot" style="width:18px;height:18px"></span> ~ 40 empleos</div>
+        <div class="legend-row"><span class="legend-dot" style="width:28px;height:28px"></span> ≥ 100 empleos</div>
+        <div class="legend-row" style="margin-top:.4rem;color:var(--primary-orange)">
+          <i class="fas fa-triangle-exclamation"></i> contorno naranja = Revisar
+        </div>
+      </div>
+
+      <!-- ── DETALLE ── -->
+      <div class="detail" id="detail" hidden>
+        <div class="detail__head">
+          <h3 id="dName">—</h3>
+          <button id="dClose" title="Cerrar"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="detail__body">
+          <div class="flow-big">
+            <div class="fb now"><div class="n" id="dNow">—</div><div class="l">Actual</div></div>
+            <i class="fas fa-arrow-right-long"></i>
+            <div class="fb next"><div class="n" id="dNext">—</div><div class="l">Propuesta</div></div>
+          </div>
+          <div class="flow-delta" id="dDelta">—</div>
+
+          <h4>Distribución por nivel jerárquico</h4>
+          <div id="dNiveles"></div>
+
+          <div class="detail__meta" id="dMeta"></div>
+          <div class="detail__note" id="dDocNote" hidden></div>
+          <div class="detail__note warn">
+            <i class="fas fa-location-dot"></i>
+            <span>Ubicación <b>aproximada</b>. Pendiente cargar coordenadas oficiales de cada despacho
+            en <code>datos_planta/dependencias.csv</code>.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="statusbar">
+    <span><i class="fas fa-file-pdf" style="color:var(--primary-orange)"></i>
+      Fuente: <span class="sb-strong">ANEXO 2 FASE 3</span> — tablas «Planta propuesta» por dependencia</span>
+    <span class="sep">|</span>
+    <span>Contrato <span class="sb-strong">CI-SGE-0005-2025 / CO1.PCCNTR.7884694</span></span>
+    <span class="sep">|</span>
+    <span id="sbSel">Ninguna dependencia seleccionada</span>
+  </div>
+
+</div>
+
+<script id="planta-data" type="application/json">
+{
+ "meta": {
+  "titulo": "Rediseño Planta de Personal — San Andrés, Providencia y Santa Catalina",
+  "contrato": "CI-SGE-0005-2025 / CO1.PCCNTR.7884694",
+  "fuente": "ANEXO 2 FASE 3 — tablas 'Planta propuesta' por dependencia",
+  "nota_coords": "Ubicaciones aproximadas — pendiente georreferenciación oficial"
+ },
+ "totales": {
+  "actual": 501,
+  "propuesta": 821,
+  "delta": 320,
+  "n": 26,
+  "ok": 17
+ },
+ "dependencias": [
+  {
+   "slug": "oficina_asesora_juridica",
+   "nombre": "Oficina Asesora Jurídica",
+   "actual": 10,
+   "propuesta": 15,
+   "delta": 5,
+   "doc_actual": "10",
+   "doc_prop": "15",
+   "coincide": true,
+   "pagina": 29,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.5947,
+   "lon": -81.7006,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 10
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 3,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_control_interno_de_gestion",
+   "nombre": "Oficina de Control Interno de Gestión",
+   "actual": 5,
+   "propuesta": 9,
+   "delta": 4,
+   "doc_actual": "4",
+   "doc_prop": "8",
+   "coincide": false,
+   "pagina": 35,
+   "n_lineas": 9,
+   "tipo": "AP",
+   "lat": 12.60024,
+   "lon": -81.69524,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 4,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Director",
+     "actual": 0,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 0,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 0
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_control_interno_disciplinario",
+   "nombre": "Oficina de Control Interno Disciplinario",
+   "actual": 2,
+   "propuesta": 9,
+   "delta": 7,
+   "doc_actual": "2",
+   "doc_prop": "9",
+   "coincide": true,
+   "pagina": 44,
+   "n_lineas": 6,
+   "tipo": "AP",
+   "lat": 12.60418,
+   "lon": -81.68629,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Director",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_prensa_y_comunicaciones",
+   "nombre": "Oficina de Prensa y Comunicaciones",
+   "actual": 2,
+   "propuesta": 9,
+   "delta": 7,
+   "doc_actual": "2",
+   "doc_prop": "9",
+   "coincide": true,
+   "pagina": 52,
+   "n_lineas": 8,
+   "tipo": "AP",
+   "lat": 12.59219,
+   "lon": -81.69132,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 1,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "occre",
+   "nombre": "OCCRE",
+   "actual": 86,
+   "propuesta": 164,
+   "delta": 78,
+   "doc_actual": "86",
+   "doc_prop": "164",
+   "coincide": true,
+   "pagina": 62,
+   "n_lineas": 22,
+   "tipo": "AP",
+   "lat": 12.59379,
+   "lon": -81.68217,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 66,
+     "propuesta": 103
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 13,
+     "propuesta": 33
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 27
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_privada",
+   "nombre": "Secretaría Privada",
+   "actual": 6,
+   "propuesta": 8,
+   "delta": 2,
+   "doc_actual": "6",
+   "doc_prop": "7",
+   "coincide": false,
+   "pagina": 70,
+   "n_lineas": 6,
+   "tipo": "AP",
+   "lat": 12.5925,
+   "lon": -81.6718,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 5,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_planeacion",
+   "nombre": "Secretaría de Planeación",
+   "actual": 16,
+   "propuesta": 24,
+   "delta": 8,
+   "doc_actual": "16",
+   "doc_prop": "24",
+   "coincide": true,
+   "pagina": 79,
+   "n_lineas": 14,
+   "tipo": "AP",
+   "lat": 12.58591,
+   "lon": -81.6867,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 8,
+     "propuesta": 13
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 4,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 3,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_hacienda",
+   "nombre": "Secretaría de Hacienda",
+   "actual": 27,
+   "propuesta": 38,
+   "delta": 11,
+   "doc_actual": "27",
+   "doc_prop": "39",
+   "coincide": false,
+   "pagina": 90,
+   "n_lineas": 24,
+   "tipo": "AP",
+   "lat": 12.58277,
+   "lon": -81.67836,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 14
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 9,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 10,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 2,
+     "propuesta": 2
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_salud",
+   "nombre": "Secretaría de Salud",
+   "actual": 40,
+   "propuesta": 52,
+   "delta": 12,
+   "doc_actual": "40",
+   "doc_prop": "52",
+   "coincide": true,
+   "pagina": 105,
+   "n_lineas": 21,
+   "tipo": "AP",
+   "lat": 12.5769,
+   "lon": -81.6718,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 18,
+     "propuesta": 24
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 13,
+     "propuesta": 16
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 8,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_educacion",
+   "nombre": "Secretaría de Educación",
+   "actual": 20,
+   "propuesta": 28,
+   "delta": 8,
+   "doc_actual": "20",
+   "doc_prop": "27",
+   "coincide": false,
+   "pagina": 129,
+   "n_lineas": 15,
+   "tipo": "AP",
+   "lat": 12.57902,
+   "lon": -81.68908,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 10,
+     "propuesta": 18
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 7,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 2,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_agricultura_y_pesca",
+   "nombre": "Secretaría de Agricultura y Pesca",
+   "actual": 10,
+   "propuesta": 16,
+   "delta": 6,
+   "doc_actual": "10",
+   "doc_prop": "16",
+   "coincide": true,
+   "pagina": 143,
+   "n_lineas": 14,
+   "tipo": "AP",
+   "lat": 12.57272,
+   "lon": -81.68575,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 4,
+     "propuesta": 9
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 3,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 2,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_general",
+   "nombre": "Secretaría General",
+   "actual": 52,
+   "propuesta": 59,
+   "delta": 7,
+   "doc_actual": "52",
+   "doc_prop": "59",
+   "coincide": true,
+   "pagina": 162,
+   "n_lineas": 38,
+   "tipo": "AP",
+   "lat": 12.56522,
+   "lon": -81.68629,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 30,
+     "propuesta": 27
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 10,
+     "propuesta": 21
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 10,
+     "propuesta": 9
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 2,
+     "propuesta": 2
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_gobierno",
+   "nombre": "Secretaría de Gobierno",
+   "actual": 7,
+   "propuesta": 12,
+   "delta": 5,
+   "doc_actual": "7",
+   "doc_prop": "12",
+   "coincide": true,
+   "pagina": 180,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.57499,
+   "lon": -81.69725,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 1,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 4,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_desarrollo_social",
+   "nombre": "Secretaría de Desarrollo Social",
+   "actual": 10,
+   "propuesta": 22,
+   "delta": 12,
+   "doc_actual": "10",
+   "doc_prop": "22",
+   "coincide": true,
+   "pagina": 196,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.5687,
+   "lon": -81.7006,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 8,
+     "propuesta": 14
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_movilidad",
+   "nombre": "Secretaría de Movilidad",
+   "actual": 27,
+   "propuesta": 43,
+   "delta": 16,
+   "doc_actual": "27",
+   "doc_prop": "42",
+   "coincide": false,
+   "pagina": 208,
+   "n_lineas": 15,
+   "tipo": "AP",
+   "lat": 12.56334,
+   "lon": -81.70797,
+   "niveles": [
+    {
+     "nivel": "Técnico",
+     "actual": 17,
+     "propuesta": 29
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 7,
+     "propuesta": 8
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_turismo",
+   "nombre": "Secretaría de Turismo",
+   "actual": 8,
+   "propuesta": 21,
+   "delta": 13,
+   "doc_actual": "8",
+   "doc_prop": "21",
+   "coincide": true,
+   "pagina": 217,
+   "n_lineas": 12,
+   "tipo": "AP",
+   "lat": 12.57585,
+   "lon": -81.70711,
+   "niveles": [
+    {
+     "nivel": "Técnico",
+     "actual": 2,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 3,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_infraestructura",
+   "nombre": "Secretaría de Infraestructura",
+   "actual": 22,
+   "propuesta": 38,
+   "delta": 16,
+   "doc_actual": "23",
+   "doc_prop": "38",
+   "coincide": false,
+   "pagina": 229,
+   "n_lineas": 24,
+   "tipo": "AP",
+   "lat": 12.57272,
+   "lon": -81.71545,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 8,
+     "propuesta": 17
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 10,
+     "propuesta": 15
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 3,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_servicios_publicos_y_medio_ambiente",
+   "nombre": "Secretaría de Servicios Públicos y Medio Ambiente",
+   "actual": 6,
+   "propuesta": 24,
+   "delta": 18,
+   "doc_actual": "6",
+   "doc_prop": "23",
+   "coincide": false,
+   "pagina": 244,
+   "n_lineas": 18,
+   "tipo": "AP",
+   "lat": 12.5722,
+   "lon": -81.72595,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 2,
+     "propuesta": 8
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_cultura",
+   "nombre": "Secretaría de Cultura",
+   "actual": 5,
+   "propuesta": 13,
+   "delta": 8,
+   "doc_actual": "5",
+   "doc_prop": "13",
+   "coincide": true,
+   "pagina": 255,
+   "n_lineas": 12,
+   "tipo": "AP",
+   "lat": 12.58115,
+   "lon": -81.71369,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 2,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 2,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_tic",
+   "nombre": "Secretaría TIC",
+   "actual": 33,
+   "propuesta": 30,
+   "delta": -3,
+   "doc_actual": "33",
+   "doc_prop": "30",
+   "coincide": true,
+   "pagina": 272,
+   "n_lineas": 15,
+   "tipo": "AP",
+   "lat": 12.58277,
+   "lon": -81.72284,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 13,
+     "propuesta": 13
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 15,
+     "propuesta": 12
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 4,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_seguridad_y_convivencia_ciudadana",
+   "nombre": "Secretaría de Seguridad y Convivencia Ciudadana",
+   "actual": 30,
+   "propuesta": 33,
+   "delta": 3,
+   "doc_actual": "30",
+   "doc_prop": "33",
+   "coincide": true,
+   "pagina": 290,
+   "n_lineas": 18,
+   "tipo": "AP",
+   "lat": 12.58735,
+   "lon": -81.73118,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 13,
+     "propuesta": 20
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 11,
+     "propuesta": 7
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 5,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_gestion_del_riesgo",
+   "nombre": "Secretaría de Gestión del Riesgo",
+   "actual": 64,
+   "propuesta": 99,
+   "delta": 35,
+   "doc_actual": "64",
+   "doc_prop": "99",
+   "coincide": true,
+   "pagina": 306,
+   "n_lineas": 23,
+   "tipo": "AP",
+   "lat": 12.58825,
+   "lon": -81.71369,
+   "niveles": [
+    {
+     "nivel": "Asistencial",
+     "actual": 54,
+     "propuesta": 80
+    },
+    {
+     "nivel": "Profesional",
+     "actual": 5,
+     "propuesta": 11
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 3,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_la_mujer_y_equidad_de_genero",
+   "nombre": "Secretaría de la Mujer y Equidad de Género",
+   "actual": 9,
+   "propuesta": 14,
+   "delta": 5,
+   "doc_actual": "9",
+   "doc_prop": "11",
+   "coincide": false,
+   "pagina": 316,
+   "n_lineas": 10,
+   "tipo": "AP",
+   "lat": 12.59379,
+   "lon": -81.71903,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 6,
+     "propuesta": 10
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "secretaria_de_la_juventud",
+   "nombre": "Secretaría de la Juventud",
+   "actual": 4,
+   "propuesta": 10,
+   "delta": 6,
+   "doc_actual": "4",
+   "doc_prop": "10",
+   "coincide": true,
+   "pagina": 324,
+   "n_lineas": 11,
+   "tipo": "AP",
+   "lat": 12.60117,
+   "lon": -81.72102,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 1,
+     "propuesta": 6
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 1,
+     "propuesta": 2
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 1,
+     "propuesta": 1
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 0,
+     "propuesta": 0
+    }
+   ]
+  },
+  {
+   "slug": "inder_islas",
+   "nombre": "INDER ISLAS",
+   "actual": 0,
+   "propuesta": 25,
+   "delta": 25,
+   "doc_actual": "0",
+   "doc_prop": "25",
+   "coincide": true,
+   "pagina": 337,
+   "n_lineas": 21,
+   "tipo": "N",
+   "lat": 12.59355,
+   "lon": -81.70711,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 13
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 0,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Técnico",
+     "actual": 0,
+     "propuesta": 4
+    },
+    {
+     "nivel": "Asesor",
+     "actual": 0,
+     "propuesta": 3
+    },
+    {
+     "nivel": "Asistencial",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  },
+  {
+   "slug": "oficina_de_contratacion",
+   "nombre": "Oficina de Contratación",
+   "actual": 0,
+   "propuesta": 6,
+   "delta": 6,
+   "doc_actual": "",
+   "doc_prop": "",
+   "coincide": false,
+   "pagina": 343,
+   "n_lineas": 4,
+   "tipo": "N",
+   "lat": 12.60024,
+   "lon": -81.70596,
+   "niveles": [
+    {
+     "nivel": "Profesional",
+     "actual": 0,
+     "propuesta": 5
+    },
+    {
+     "nivel": "Directivo",
+     "actual": 0,
+     "propuesta": 1
+    }
+   ]
+  }
+ ]
+}
+</script>
+
+<script>
+(function () {
+  const DATA = JSON.parse(document.getElementById('planta-data').textContent);
+  const NIVEL_ORDER = ['Directivo','Director','Asesor','Profesional','Técnico','Asistencial'];
+  const fmt = n => n.toLocaleString('es-CO');
+
+  // ── KPIs ──
+  const T = DATA.totales;
+  kpiActual.textContent = fmt(T.actual);
+  kpiProp.textContent   = fmt(T.propuesta);
+  kpiDelta.textContent  = (T.delta >= 0 ? '+' : '') + fmt(T.delta);
+  kpiPct.textContent    = '+' + Math.round(T.delta / T.actual * 100) + '% sobre la planta actual';
+  kpiN.textContent      = T.n;
+  kpiOk.textContent     = T.ok;
+
+  // ── Mapa ──
+  const HOME = ol.proj.fromLonLat([-81.706, 12.585]);
+  const HOME_ZOOM = 12.6;
+  const map = new ol.Map({
+    target: 'map',
+    layers: [ new ol.layer.Tile({
+      source: new ol.source.OSM({ attributions: '© OpenStreetMap' })
+    }) ],
+    view: new ol.View({ center: HOME, zoom: HOME_ZOOM, minZoom: 10, maxZoom: 18 }),
+    controls: ol.control.defaults.defaults({ zoom: false })
+  });
+
+  const radius = p => Math.max(6, Math.min(30, 4 + Math.sqrt(p) * 2.4));
+  const fill   = d => d > 0 ? 'rgba(5,150,105,0.72)' : (d < 0 ? 'rgba(220,38,38,0.68)' : 'rgba(107,114,128,0.6)');
+
+  const feats = DATA.dependencias.map(dep => {
+    const f = new ol.Feature({
+      geometry: new ol.geom.Point(ol.proj.fromLonLat([dep.lon, dep.lat])),
+      dep
+    });
+    f.setId(dep.slug);
+    return f;
+  });
+  const vsrc = new ol.source.Vector({ features: feats });
+  const vlayer = new ol.layer.Vector({
+    source: vsrc,
+    style: f => {
+      const d = f.get('dep'), sel = f.get('_sel');
+      return new ol.style.Style({
+        image: new ol.style.Circle({
+          radius: radius(d.propuesta),
+          fill: new ol.style.Fill({ color: fill(d.delta) }),
+          stroke: new ol.style.Stroke({
+            color: d.coincide ? '#ffffff' : '#ea580c',
+            width: d.coincide ? (sel ? 3 : 1.5) : (sel ? 4 : 2.5)
+          })
+        }),
+        text: sel ? new ol.style.Text({
+          text: d.nombre, offsetY: -radius(d.propuesta) - 10,
+          font: '600 12px Segoe UI, sans-serif',
+          fill: new ol.style.Fill({ color: '#1f2937' }),
+          backgroundFill: new ol.style.Fill({ color: 'rgba(255,255,255,0.85)' }),
+          padding: [2, 4, 2, 4]
+        }) : undefined
+      });
+    }
+  });
+  map.addLayer(vlayer);
+
+  // ── Popup ──
+  const popEl = document.getElementById('popup');
+  const overlay = new ol.Overlay({ element: popEl, autoPan: { animation: { duration: 200 } } });
+  map.addOverlay(overlay);
+
+  map.on('pointermove', e => {
+    const hit = map.hasFeatureAtPixel(e.pixel);
+    map.getTargetElement().style.cursor = hit ? 'pointer' : '';
+  });
+
+  map.on('click', e => {
+    const f = map.forEachFeatureAtPixel(e.pixel, ff => ff);
+    if (!f) { popEl.hidden = true; return; }
+    const d = f.get('dep');
+    popEl.hidden = false;
+    popEl.innerHTML =
+      '<h5>' + d.nombre + '</h5>' +
+      '<div>' + d.actual + ' &rarr; <span class="pp-flow">' + d.propuesta +
+      '</span> (' + (d.delta >= 0 ? '+' : '') + d.delta + ')</div>';
+    overlay.setPosition(f.getGeometry().getCoordinates());
+    select(d.slug, false);
+  });
+
+  document.getElementById('zIn').onclick   = () => map.getView().animate({ zoom: map.getView().getZoom() + 1, duration: 200 });
+  document.getElementById('zOut').onclick  = () => map.getView().animate({ zoom: map.getView().getZoom() - 1, duration: 200 });
+  document.getElementById('zHome').onclick = () => { map.getView().animate({ center: HOME, zoom: HOME_ZOOM, duration: 500 }); deselect(); };
+
+  // ── Lista lateral ──
+  const listEl = document.getElementById('depList');
+  const sortSel = document.getElementById('sortSel');
+  const maxProp = Math.max(...DATA.dependencias.map(d => d.propuesta));
+
+  function sorted() {
+    const a = DATA.dependencias.slice();
+    switch (sortSel.value) {
+      case 'prop':    a.sort((x, y) => y.propuesta - x.propuesta); break;
+      case 'actual':  a.sort((x, y) => y.actual - x.actual); break;
+      case 'nombre':  a.sort((x, y) => x.nombre.localeCompare(y.nombre, 'es')); break;
+      case 'revisar': a.sort((x, y) => (x.coincide - y.coincide) || (y.delta - x.delta)); break;
+      default:        a.sort((x, y) => y.delta - x.delta);
+    }
+    return a;
+  }
+
+  function renderList() {
+    listEl.innerHTML = '';
+    sorted().forEach(d => {
+      const card = document.createElement('div');
+      card.className = 'dep-card';
+      card.dataset.slug = d.slug;
+      const dcls = d.delta > 0 ? '' : (d.delta < 0 ? 'neg' : 'zero');
+      const wA = (d.actual / maxProp * 100).toFixed(1);
+      const wP = (d.propuesta / maxProp * 100).toFixed(1);
+      card.innerHTML =
+        '<div class="dep-card__top">' +
+          '<span class="dep-card__name">' + d.nombre + '</span>' +
+          '<span class="dep-card__delta ' + dcls + '">' + (d.delta >= 0 ? '+' : '') + d.delta + '</span>' +
+        '</div>' +
+        '<div class="bar-dual">' +
+          '<div class="bar-row"><span class="bl">Actual</span>' +
+            '<span class="bar-track"><span class="bar-fill actual" style="width:' + wA + '%"></span></span>' +
+            '<span class="bv">' + d.actual + '</span></div>' +
+          '<div class="bar-row"><span class="bl">Prop.</span>' +
+            '<span class="bar-track"><span class="bar-fill prop" style="width:' + wP + '%"></span></span>' +
+            '<span class="bv">' + d.propuesta + '</span></div>' +
+        '</div>' +
+        '<div class="dep-card__flags">' +
+          (d.coincide
+            ? '<span class="flag ok"><i class="fas fa-check"></i>cuadra</span>'
+            : '<span class="flag rev"><i class="fas fa-triangle-exclamation"></i>revisar</span>') +
+          (d.pagina ? '<span class="flag pg"><i class="fas fa-file-pdf"></i>pág. ' + d.pagina + '</span>' : '') +
+          (d.tipo === 'N' ? '<span class="flag pg">entidad nueva</span>' : '') +
+        '</div>';
+      card.onclick = () => select(d.slug, true);
+      listEl.appendChild(card);
+    });
+    highlightCard();
+  }
+  sortSel.onchange = renderList;
+
+  // ── Selección ──
+  let current = null;
+
+  function highlightCard() {
+    listEl.querySelectorAll('.dep-card').forEach(c =>
+      c.classList.toggle('active', c.dataset.slug === current));
+  }
+
+  function select(slug, fly) {
+    current = slug;
+    const d = DATA.dependencias.find(x => x.slug === slug);
+    feats.forEach(f => f.set('_sel', f.getId() === slug, true));
+    vlayer.changed();
+    highlightCard();
+    const card = listEl.querySelector('.dep-card[data-slug="' + slug + '"]');
+    if (card) card.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+
+    if (fly) {
+      const f = vsrc.getFeatureById(slug);
+      map.getView().animate({ center: f.getGeometry().getCoordinates(), zoom: Math.max(map.getView().getZoom(), 14), duration: 500 });
+      popEl.hidden = true;
+    }
+    renderDetail(d);
+    document.getElementById('sbSel').innerHTML =
+      '<span class="sb-strong">' + d.nombre + '</span> · ' + d.actual + ' &rarr; ' + d.propuesta + ' empleos';
+  }
+
+  function deselect() {
+    current = null;
+    feats.forEach(f => f.set('_sel', false, true));
+    vlayer.changed();
+    highlightCard();
+    document.getElementById('detail').hidden = true;
+    popEl.hidden = true;
+    document.getElementById('sbSel').textContent = 'Ninguna dependencia seleccionada';
+  }
+
+  function renderDetail(d) {
+    const box = document.getElementById('detail');
+    box.hidden = false;
+    document.getElementById('dName').textContent = d.nombre;
+    document.getElementById('dNow').textContent  = d.actual;
+    document.getElementById('dNext').textContent = d.propuesta;
+    const dd = document.getElementById('dDelta');
+    dd.textContent = (d.delta >= 0 ? '+' : '') + d.delta + ' empleos' +
+      (d.actual ? '  ·  ' + (d.delta >= 0 ? '+' : '') + Math.round(d.delta / d.actual * 100) + '%' : '');
+    dd.classList.toggle('neg', d.delta < 0);
+
+    const niv = d.niveles.slice().sort((a, b) =>
+      NIVEL_ORDER.indexOf(a.nivel) - NIVEL_ORDER.indexOf(b.nivel));
+    const mx = Math.max(1, ...niv.map(n => Math.max(n.actual, n.propuesta)));
+    document.getElementById('dNiveles').innerHTML = niv.map(n =>
+      '<div class="niv-row">' +
+        '<div class="niv-row__top"><span class="nn">' + n.nivel + '</span>' +
+        '<span class="nv">' + n.actual + ' &rarr; <b>' + n.propuesta + '</b></span></div>' +
+        '<div class="niv-track">' +
+          '<div class="niv-prop" style="width:' + (n.propuesta / mx * 100) + '%"></div>' +
+          '<div class="niv-actual" style="width:' + (n.actual / mx * 100) + '%"></div>' +
+        '</div>' +
+      '</div>').join('');
+
+    document.getElementById('dMeta').innerHTML =
+      (d.pagina ? '<span class="flag pg"><i class="fas fa-file-pdf"></i> Anexo 2, pág. ' + d.pagina + '</span>' : '') +
+      '<span class="flag pg">' + d.n_lineas + ' líneas de cargo</span>' +
+      (d.coincide
+        ? '<span class="flag ok"><i class="fas fa-check"></i> cuadra con el documento</span>'
+        : '<span class="flag rev"><i class="fas fa-triangle-exclamation"></i> revisar</span>');
+
+    const note = document.getElementById('dDocNote');
+    if (!d.coincide) {
+      note.hidden = false;
+      note.classList.add('warn');
+      note.innerHTML = '<i class="fas fa-triangle-exclamation"></i><span>' +
+        (d.doc_prop
+          ? ('El TOTAL impreso del documento dice <b>' + d.doc_actual + ' &rarr; ' + d.doc_prop +
+             '</b>; la suma de sus filas da <b>' + d.actual + ' &rarr; ' + d.propuesta +
+             '</b>. Verificar contra la pág. ' + d.pagina + '.')
+          : ('El documento no trae fila TOTAL para esta dependencia; el conteo ' +
+             '(<b>' + d.propuesta + '</b>) proviene de la suma de filas.')) +
+        '</span>';
+    } else {
+      note.hidden = true;
+      note.classList.remove('warn');
+    }
+  }
+
+  document.getElementById('dClose').onclick = deselect;
+
+  renderList();
+})();
+</script>
+</body>
+</html>
